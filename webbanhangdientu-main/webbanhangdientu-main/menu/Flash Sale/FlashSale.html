@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SudesPhone - Cửa hàng đồ điện tử</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/FlashSale.css">
+    
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="logo">
+                <span class="sudes">SUDES</span>
+                <span class="phone">PHONE</span>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Tìm kiếm..." />
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div class="contact-info">
+                <div class="hotline">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <span>0385942049</span>
+                </div>
+                <a href="/loginsign/shoppingcart.html" class="cart-icon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>0</span> Giỏ hàng
+                </a>
+                <a href="/loginsign/login.html" class="user-link">
+                    <i class="fa-solid fa-user"></i> Đăng nhập</a>
+                <a href="/loginsign/sign.html" class="user-link">
+                    <i class="fa-solid fa-user-plus"></i> Đăng ký</a>
+            </div>
+        </div> 
+        <nav class="navigation">
+            <div class="nav-container">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/index.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu/dienthoai.html">Điện thoại</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Laptop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Máy tính bảng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Đồng hồ thông minh</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Phụ kiện</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Khuyến mãi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tin tức</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Liên hệ</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+</body>
+ <!-- Banner -->
+ <section class="banner-wrapper">
+    <div class="full-width-banner">
+        <img src="/image/banerrsale.jpg" alt="Banner điện thoại" class="img-fluid w-100 rounded banner-img">
+    </div>
+</section>
+<!-- Bộ lọc sản phẩm -->
+<div class="filter-container">
+    <div class="brand-filter">
+        <a href="#" class="filter-btn loc-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+            </svg>
+            Lọc
+        </a>
+        
+        <a href="#samsung" class="filter-btn">
+            <img src="https://cdnv2.tgdd.vn/mwg-static/common/Category/3f/68/3f68e22880dd800e9e34d55245048a0f.png" alt="Samsung" class="brand-logo">
+          
+        </a>
+        
+        <a href="#iphone" class="filter-btn">
+            <img src="https://cdnv2.tgdd.vn/mwg-static/common/Category/57/03/5703d996359650c57421b72f3f7ff5cd.png" alt="Apple" class="brand-logo">
+          
+        </a>
+        
+        <a href="#xiaomi" class="filter-btn">
+            <img src="https://cdnv2.tgdd.vn/mwg-static/common/Category/e9/df/e9df3ae9fb60a1460e9030975d0e024a.png" alt="Xiaomi" class="brand-logo">
+            
+        </a>
+        
+        <a href="#oppo" class="filter-btn">
+            <img src="https://cdnv2.tgdd.vn/mwg-static/common/Category/2c/ea/2cea467041fb9effb3a6d3dcc88f38f8.png" alt="Oppo" class="brand-logo">
+            
+        </a>
+        
+        <a href="#vivo" class="filter-btn">
+            <img src=" https://cdnv2.tgdd.vn/mwg-static/common/Category/78/38/783870ef310908b123c50cb43b8f6f92.png" alt="Realme" class="brand-logo">
+           
+        </a>
+        <a href="#realme" class="filter-btn">
+            <img src="https://cdn.tgdd.vn/Brand//1/Realme42-b_37.png" alt="Huawei" class="brand-logo">
+            
+        </a>
+        <a href="#huawei" class="filter-btn">
+            <img src="https://cdnv2.tgdd.vn/mwg-static/common/Category/7077/d0/55/d055b1f2c6c010277ce5f68eff2f937b.png" alt="Nokia" class="brand-logo">
+           
+        </a>
+        
+        <a href="#nokia" class="filter-btn">
+            <img src="https://cdnv2.tgdd.vn/mwg-static/common/Category/b5/68/b5686886a3142a87df546889d8c14402.png" alt="Vivo" class="brand-logo" style="color: red;">
+        </a>
+    </div>
+    <div class="sort-options">
+<span style="font-size: 14px; color: #666;">Sắp xếp theo:</span>
+<div class="price-dropdown">
+<a href="#" class="price-btn">Giá</a>
+<div class="price-dropdown-content">
+    <div class="price-dropdown-content-inner">
+        <a href="#" data-filter="all">Tất cả các mức giá</a>
+        <a href="#" data-filter="under-2m">Dưới 2 triệu</a>
+        <a href="#" data-filter="2m-5m">Từ 2 - 5 triệu</a>
+        <a href="#" data-filter="5m-10m">Từ 5 - 10 triệu</a>
+        <a href="#" data-filter="10m-20m">Từ 10 - 20 triệu</a>
+        <a href="#" data-filter="over-20m">Trên 20 triệu</a>
+    </div>
+</div>
+</div>
+</div>
+ <!-- Danh sách sản phẩm -->
+<section class="container mt-4">
+    <h3 id="samsung" class="fw-bold mb-4 section-title">FlashSale</h3>
+    <div class="row g-4 product-container">
+        <!-- Sản phẩm 1 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://cdn.tgdd.vn/Products/Images/42/335915/samsung-galaxy-a26-5g-black-thumbn-600x600.jpg" 
+                class="card-img-top product-img" alt="Samsung Galaxy A26 5G">
+                <div class="discount-label">Giảm 10%</div>
+                <div class="installment-label">Trả góp 0%</div>
+                <div class="warranty-label">BH 6 tháng</div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Samsung Galaxy A26 5G</h3>
+                <div class="product-price">
+                    <span class="old-price">8.000.000₫</span>
+                    <span class="current-price">6.590.000₫</span>
+                </div>
+                <div class="promotion-info">
+                    Được đổi trả miễn phí 1 với 1 nếu gặp lỗi
+                </div>
+                <div class="button-container">
+                    <a href="../loginsign/shoppingcart.html" class="buy-button">Mua hàng</a>
+                    <a href="../loginsign/shoppingcart.html" class="cart-button">Thêm vào giỏ hàng</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sản phẩm 2 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://cdn.tgdd.vn/Products/Images/42/307174/TimerThumb/samsung-galaxy-s24-ultra-5g-(56).jpg" 
+                class="card-img-top product-img" alt="Samsung Galaxy S24 Ultra">
+                <div class="discount-label">Giảm 20%</div>
+                <div class="installment-label">Trả góp 0%</div>
+                <div class="warranty-label">BH 24 tháng</div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Samsung Galaxy S24 Ultra</h3>
+                <div class="product-price">
+                    <span class="old-price">31.990.000₫</span>
+                    <span class="current-price">25.590.000₫</span>
+                </div>
+                <div class="promotion-info">
+                    Giảm đến 3.000.000đ khi thanh toán qua ngân hàng đối tác.
+                </div>
+                <div class="button-container">
+                    <a href="../loginsign/shoppingcart.html" class="buy-button">Mua hàng</a>
+                    <a href="../loginsign/shoppingcart.html" class="cart-button">Thêm vào giỏ hàng</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sản phẩm 3 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://cdn.tgdd.vn/Products/Images/42/335177/samsung-galaxy-a56-5g-green-thumb-600x600.jpg" 
+                class="card-img-top product-img" alt="Samsung Galaxy A56 5G">
+                <div class="discount-label">Giảm 5%</div>
+                <div class="installment-label">Trả góp 10%</div>
+                <div class="warranty-label">BH 6 tháng</div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Samsung Galaxy A56 5G</h3>
+                <div class="product-price">
+                    <span class="old-price">10.000.000₫</span>
+                    <span class="current-price">9.500.000₫</span>
+                </div>
+                <div class="promotion-info">
+                    Tặng tai nghe không dây trị giá 120.000đ.
+                </div>
+                <div class="button-container">
+                    <a href="../loginsign/shoppingcart.html" class="buy-button">Mua hàng</a>
+                    <a href="../loginsign/shoppingcart.html" class="cart-button">Thêm vào giỏ hàng</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sản phẩm 4 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://cdn.tgdd.vn/Products/Images/42/331204/TimerThumb/samsung-galaxy-a16-5g-(20).jpg" 
+                class="card-img-top product-img" alt="Samsung Galaxy A16 5G">
+                <div class="discount-label">Giảm 7%</div>
+                <div class="installment-label">Trả góp 0%</div>
+                <div class="warranty-label">BH 6 tháng</div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Samsung Galaxy A16 5G</h3>
+                <div class="product-price">
+                    <span class="old-price">6.990.000₫</span>
+                    <span class="current-price">6.440.000₫</span>
+                </div>
+                <div class="promotion-info">
+                    Giảm thêm 500.000đ cho khách hàng mua lần đầu.
+                </div>
+                <div class="button-container">
+                    <a href="../loginsign/shoppingcart.html" class="buy-button">Mua hàng</a>
+                    <a href="../loginsign/shoppingcart.html" class="cart-button">Thêm vào giỏ hàng</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sản phẩm 5 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/f/r/frame_166_3.png" 
+                class="card-img-top product-img" alt="Samsung Galaxy Z Flip6 12GB 256GB">
+                <div class="discount-label">Giảm 18%</div>
+                <div class="installment-label">Trả góp 10%</div>
+                <div class="warranty-label">BH 12 tháng</div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Samsung Galaxy Z Flip6 12GB 256GB </h3>
+                <div class="product-price">
+                    <span class="old-price">28.990.000₫</span>
+                    <span class="current-price">23.790.000₫</span>
+                </div>
+                <div class="promotion-info">
+                    Tặng combo gói quà vip trị giá 2.000.000đ.
+                </div>
+                <div class="button-container">
+                    <a href="../loginsign/shoppingcart.html" class="buy-button">Mua hàng</a>
+                    <a href="../loginsign/shoppingcart.html" class="cart-button">Thêm vào giỏ hàng</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sản phẩm 6 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/d/i/dien-thoai-samsung-galaxy-s25-ultra_3__3.png" 
+                class="card-img-top product-img" alt="Samsung Galaxy S25 Ultra 12GB 256GB">
+                <div class="discount-label">Giảm 18%</div>
+                <div class="installment-label">Trả góp 10%</div>
+                <div class="warranty-label">BH 12 tháng</div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Samsung Galaxy S25 Ultra 12GB 256GB</h3>
+                <div class="product-price">
+                    <span class="old-price">33.990.000₫</span>
+                    <span class="current-price">27.690.000₫</span>
+                </div>
+                <div class="promotion-info">
+                    Tặng 1.000.000đ vào số điện thoại và các combo chính hãng.
+                </div>
+                <div class="button-container">
+                    <a href="../loginsign/shoppingcart.html" class="buy-button">Mua hàng</a>
+                    <a href="../loginsign/shoppingcart.html" class="cart-button">Thêm vào giỏ hàng</a>
+                </div>
+            </div>
+        </div>
+        <!-- Sản phẩm 7 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/s/s/ss-s24-ultra-xam-222.png" 
+                class="card-img-top product-img" alt="Samsung Galaxy S24 Ultra 12GB 256GB">
+                <div class="discount-label">Giảm 29%</div>
+                <div class="installment-label">Trả góp 0%</div>
+                <div class="warranty-label">BH 12 tháng</div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Samsung Galaxy S24 Ultra 12GB 256GB</h3>
+                <div class="product-price">
+                    <span class="old-price">33.000.000₫</span>
+                    <span class="current-price">23.600.000₫</span>
+                </div>
+                <div class="promotion-info">
+                    Tặng gói quà trị giá 2.000.000đ và quya thưởng.
+                </div>
+                <div class="button-container">
+                    <a href="../loginsign/shoppingcart.html" class="buy-button">Mua hàng</a>
+                    <a href="../loginsign/shoppingcart.html" class="cart-button">Thêm vào giỏ hàng</a>
+                </div>
+            </div>
+        </div>
+        <!-- Sản phẩm 8 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/d/i/dien-thoai-samsung-galaxy-s24-fe_3__4.png" 
+                class="card-img-top product-img" alt="Samsung Galaxy S24 FE 5G 8GB 128GB">
+                <div class="discount-label">Giảm 24%</div>
+                <div class="installment-label">Trả góp 0%</div>
+                <div class="warranty-label">BH 12 tháng</div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Samsung Galaxy S24 FE 5G 8GB 128GB</h3>
+                <div class="product-price">
+                    <span class="old-price">62.990.000₫</span>
+                    <span class="current-price">12.690.000₫</span>
+                </div>
+                <div class="promotion-info">
+                    Tặng 500.000đ vào số điện thoại.
+                </div>
+                <div class="button-container">
+                    <a href="../loginsign/shoppingcart.html" class="buy-button">Mua hàng</a>
+                    <a href="../loginsign/shoppingcart.html" class="cart-button">Thêm vào giỏ hàng</a>
+                </div>
+            </div>
+        </div>
+        <!-- Sản phẩm 9 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/d/i/dien-thoai-samsung-galaxy-m55.png" 
+                class="card-img-top product-img" alt="Samsung Galaxy M55 12GB 256GB">
+                <div class="discount-label">Giảm 23%</div>
+                <div class="installment-label">Trả góp 0%</div>
+                <div class="warranty-label">BH 12 tháng</div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Samsung Galaxy M55 12GB 256GB</h3>
+                <div class="product-price">
+                    <span class="old-price">11.990.000₫</span>
+                    <span class="current-price">8.500.000₫</span>
+                </div>
+                <div class="promotion-info">
+                    Giảm thêm 500.000đ.
+                </div>
+                <div class="button-container">
+                    <a href="../loginsign/shoppingcart.html" class="buy-button">Mua hàng</a>
+                    <a href="../loginsign/shoppingcart.html" class="cart-button">Thêm vào giỏ hàng</a>
+                </div>
+            </div>
+        </div>
+        <!-- Sản phẩm 10 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/s/a/samsung-galaxy-s22-ultra-12gb-256gb.png" 
+                class="card-img-top product-img" alt="Samsung Galaxy S22 Ultra 12GB 256GB">
+                <div class="discount-label">Giảm 10%</div>
+                <div class="installment-label">Trả góp 0%</div>
+                <div class="warranty-label">BH 12 tháng</div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Samsung Galaxy S22 Ultra 12GB 256GB</h3>
+                <div class="product-price">
+                    <span class="old-price">42.990.000₫</span>
+                    <span class="current-price">37.690.000₫</span>
+                </div>
+                <div class="promotion-info">
+                    Tặng gói quà vip trị giá 5.000.000đ.
+                </div>
+                <div class="button-container">
+                    <a href="../loginsign/shoppingcart.html" class="buy-button">Mua hàng</a>
+                    <a href="../loginsign/shoppingcart.html" class="cart-button">Thêm vào giỏ hàng</a>
+                </div>
+            </div>
+        </div>
+        <!-- Sản phẩm 11 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/s/a/samsung-z-fold5_3__1.png" 
+                class="card-img-top product-img" alt="Samsung Galaxy Z Fold5 12GB 512GB">
+                <div class="discount-label">Giảm 20%</div>
+                <div class="installment-label">Trả góp 0%</div>
+                <div class="warranty-label">BH 12 tháng</div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Samsung Galaxy Z Fold5 12GB 512GB</h3>
+                <div class="product-price">
+                    <span class="old-price">43.990.000₫</span>
+                    <span class="current-price">34.690.000₫</span>
+                </div>
+                <div class="promotion-info">
+                    Tặng gói quà vip trị giá 5.000.000đ.
+                </div>
+                <div class="button-container">
+                    <a href="../loginsign/shoppingcart.html" class="buy-button">Mua hàng</a>
+                    <a href="../loginsign/shoppingcart.html" class="cart-button">Thêm vào giỏ hàng</a>
+                </div>
+            </div>
+        </div>
+        <!-- Sản phẩm 12 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/s/a/samsung-s23-ulatra_2_.png" 
+                class="card-img-top product-img" alt="Galaxy S23 Ultra 12GB 512GB">
+                <div class="discount-label">Giảm 20%</div>
+                <div class="installment-label">Trả góp 0%</div>
+                <div class="warranty-label">BH 12 tháng</div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Galaxy S23 Ultra 12GB 512GB</h3>
+                <div class="product-price">
+                    <span class="old-price">28.990.000₫</span>
+                    <span class="current-price">23.690.000₫</span>
+                </div>
+                <div class="promotion-info">
+                    Tặng combo trị giá 3.000.000đ khi mua sản phẩm này.
+                </div>
+                <div class="button-container">
+                    <a href="../loginsign/shoppingcart.html" class="buy-button">Mua hàng</a>
+                    <a href="../loginsign/shoppingcart.html" class="cart-button">Thêm vào giỏ hàng</a>
+                </div>
+            </div>
+        </div>
+        
+
+ <!-- Footer Placeholder -->
+ <footer class="bg-dark text-white py-5 mt-5">
+    <div class="huhuhu">
+        <div class="row g-4">
+            <div class="col-12 col-md-4">
+                <div class="logo">
+                    <span class="sudes">SUDES</span>
+                    <span class="phone">PHONE</span>
+                </div>
+                <p class="mt-3">SudesPhone - Hệ thống bán lẻ thiết bị điện tử chính hãng hàng đầu Việt Nam với hơn 100 cửa hàng trên toàn quốc.</p>
+                <div class="social-links mt-3">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="col-12 col-md-2 footer-links">
+                <h5>Thông tin</h5>
+                <ul>
+                    <li><a href="#">Giới thiệu</a></li>
+                    <li><a href="#">Tin tức</a></li>
+                    <li><a href="#">Khuyến mãi</a></li>
+                    <li><a href="#">Tuyển dụng</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-2 footer-links">
+                <h5>Chính sách</h5>
+                <ul>
+                    <li><a href="#">Chính sách bảo hành</a></li>
+                    <li><a href="#">Chính sách đổi trả</a></li>
+                    <li><a href="#">Chính sách giao hàng</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                    <li><a href="#">Điều khoản sử dụng</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-4 footer-links">
+                <h5>Liên hệ</h5>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt me-2"></i> 30 Phùng Khắc Khoan, Đống đa, Quy Nhơn</li>
+                    <li><i class="fas fa-phone-alt me-2"></i> Hotline: 1900 6750</li>
+                    <li><i class="fas fa-envelope me-2"></i> Email: support@sudesphone.com</li>
+                </ul>
+                <div class="mt-3">
+                    <h5>Phương thức thanh toán</h5>
+                    <div class="d-flex flex-wrap gap-2 mt-2">
+                        <img src="https://cdn-icons-png.flaticon.com/64/196/196578.png" alt="Visa" height="30">
+                        <img src="https://cdn-icons-png.flaticon.com/64/196/196561.png" alt="Mastercard" height="30">
+                        <img src="https://cdn-icons-png.flaticon.com/64/217/217445.png" alt="PayPal" height="30">
+                        <img src="https://cdn-icons-png.flaticon.com/64/5968/5968279.png" alt="MoMo" height="30">
+                        <img src="https://cdn-icons-png.flaticon.com/64/4365/4365217.png" alt="COD" height="30">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="my-4">
+        <div class="row">
+            <div class="col-12 text-center">
+                <p class="mb-0">&copy; 2024 SudesPhone. Tất cả các quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="/js/menu.js"></script>
+  </body>
+  </html>
