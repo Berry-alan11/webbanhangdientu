@@ -13,30 +13,35 @@
   <div class="bg-white rounded-lg shadow-md w-full max-w-sm p-6">
     <h2 class="text-center font-semibold text-lg mb-2">ĐĂNG KÝ</h2>
     <p class="text-center text-sm mb-6">Đã có tài khoản, đăng nhập tại <a href="#" class="text-blue-600 hover:underline">đây</a></p>
-    <form class="space-y-4">
+    <form class="space-y-4" action="register_process.php" method="post">
       <input
         type="text"
         placeholder="Họ"
+        name = "lastname"
         class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
       <input
         type="text"
         placeholder="Tên"
+        name = "firstname"
         class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
       <input
         type="email"
         placeholder="Email"
+        name="email"
         class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
       <input
         type="tel"
         placeholder="Số điện thoại"
+        name="phonenumber"
         class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
       <input
         type="password"
         placeholder="Mật khẩu"
+        name="passwords"
         class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
       <button
