@@ -37,7 +37,8 @@ $stmt->bind_param('sssis', $lastname, $firstname, $email, $phonenumber, $passwor
 
 //Thực thi câu lệnh sql và kiểm tra xem dữ liệu đã được chèn vào bảng hay chưa
 if($stmt->execute()){
-    echo"Đăng ký thành công và đã chèn vào được";
+    echo"\nĐăng ký thành công và đã chèn vào được";
+    header("Location:login.php");
 }else{
     echo "Error".$stmt->error;
 }
