@@ -67,10 +67,10 @@
                                 <a class="nav-link active fw-bold" href="#">Trang chủ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Điện thoại</a>
+                                <a class="nav-link" href="phone.php">Điện thoại</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Laptop</a>
+                                <a class="nav-link" href="laptop.php">Laptop</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="tablet.php">Máy tính bảng</a>
@@ -79,7 +79,10 @@
                                 <a class="nav-link" href="smartwatch.php">Đồng hồ thông minh</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Phụ kiện</a>
+                                <a class="nav-link" href="headphone.php">Tai nghe</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="accessorie.php">Phụ kiện</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Khuyến mãi</a>

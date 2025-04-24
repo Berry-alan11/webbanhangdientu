@@ -1,0 +1,19 @@
+# Bỏ qua thư mục hệ thống không liên quan
+AppData/
+*.log
+*.tmp
+*.bak
+
+# Bỏ qua file hệ điều hành
+.DS_Store
+Thumbs.db
+
+# Bỏ qua IDE
+.vscode/
+.idea/
+
+# Nếu có dùng composer
+vendor/
+
+# Nếu có dùng nodejs
+node_modules/
