@@ -12,15 +12,17 @@
 <body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
   <div class="bg-white rounded-md shadow-md w-full max-w-sm p-6">
     <h2 class="text-center text-gray-900 font-normal mb-6">ĐĂNG NHẬP</h2>
-    <form class="space-y-4">
+    <form class="space-y-4" action="login_process.php" method="post">
       <input
         type="email"
         placeholder="Email"
+        name="email"
         class="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-700 focus:outline-none focus:ring-1 focus:ring-gray-400"
       />
       <input
         type="password"
         placeholder="Mật khẩu"
+        name="passwords"
         class="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-700 focus:outline-none focus:ring-1 focus:ring-gray-400"
       />
       <button
