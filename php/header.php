@@ -34,7 +34,7 @@
         <!-- Main Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
             <div class="container">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="index.php">
                     <h2 class="fw-bold text-primary">SUDES<span class="text-danger">PHONE</span></h2>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">

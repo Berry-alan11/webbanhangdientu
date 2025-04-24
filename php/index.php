@@ -64,25 +64,29 @@
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
                     <div class="category-pill">
-                        <img src="https://cdn-icons-png.flaticon.com/128/2946/2946198.png" alt="Tablet">
+                    <!-- https://cdn-icons-png.flaticon.com/128/2946/2946198.png -->
+                        <img src="/img/sanpham/tablet.png" alt="Tablet">
                         <p class="mb-0">Máy tính bảng</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
                     <div class="category-pill">
-                        <img src="https://cdn-icons-png.flaticon.com/128/2935/2935235.png" alt="Smartwatch">
+                    <!-- https://cdn-icons-png.flaticon.com/128/2935/2935235.png -->
+                        <img src="/img/sanpham/smartwatch.png" alt="Smartwatch">
                         <p class="mb-0">Đồng hồ thông minh</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
                     <div class="category-pill">
-                        <img src="https://cdn-icons-png.flaticon.com/128/3522/3522263.png" alt="Tai nghe">
+                    <!-- https://cdn-icons-png.flaticon.com/128/3522/3522263.png -->
+                        <img src="/img/sanpham/headphone-symbol.png" alt="Tai nghe">
                         <p class="mb-0">Tai nghe</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
                     <div class="category-pill">
-                        <img src="https://cdn-icons-png.flaticon.com/128/2947/2947998.png" alt="Phụ kiện">
+                    <!-- https://cdn-icons-png.flaticon.com/128/2947/2947998.png -->
+                        <img src="/img/sanpham/phukien.png" alt="Phụ kiện">
                         <p class="mb-0">Phụ kiện</p>
                     </div>
                 </div>
@@ -172,7 +176,8 @@
                 <div class="col-6 col-md-4 col-lg-3">
                     <div class="card product-card h-100">
                         <span class="discount-badge">-30%</span>
-                        <img src="https://images.unsplash.com/photo-1542495392-7617d61c48b5?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=300&q=80" 
+                        <!-- https://images.unsplash.com/photo-1542495392-7617d61c48b5?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=300&q=80 -->
+                        <img src="/img/headphone/router_engraving__d1q0o3p8lk2u_large.jpg" 
                             class="card-img-top product-img" alt="Tai nghe Apple AirPods">
                         <div class="card-body">
                             <h5 class="card-title product-title">Apple AirPods Pro 2</h5>
@@ -274,7 +279,8 @@
                 <div class="col-6 col-md-4 col-lg-3">
                     <div class="card product-card h-100">
                         <span class="badge bg-success position-absolute top-0 start-0 m-2">Mới</span>
-                        <img src="https://images.unsplash.com/photo-1628815113969-0487917fc601?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=300&q=80" 
+                        <!-- https://images.unsplash.com/photo-1628815113969-0487917fc601?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=300&q=80 -->
+                        <img src="/img/loa/loa-bluetooth-sony-ult-field-1_5__1.webp" 
                             class="card-img-top product-img" alt="Loa Sony">
                         <div class="card-body">
                             <h5 class="card-title product-title">Loa Bluetooth Sony SRS-XG300</h5>
@@ -313,25 +319,29 @@
                 </div>
                 <div class="col-4 col-md-2">
                     <div class="card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Xiaomi_logo.svg/1024px-Xiaomi_logo.svg.png" 
+                    <!-- https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Xiaomi_logo.svg/1024px-Xiaomi_logo.svg.png -->
+                        <img src="/img/logo/Xiaomi.jpg" 
                             class="card-img-top p-4" alt="Xiaomi">
                     </div>
                 </div>
                 <div class="col-4 col-md-2">
                     <div class="card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Oppo_logo.svg/1024px-Oppo_logo.svg.png" 
+                    <!-- https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Oppo_logo.svg/1024px-Oppo_logo.svg.png -->
+                        <img src="/img/logo/Oppo.jpg" 
                             class="card-img-top p-4" alt="Oppo">
                     </div>
                 </div>
                 <div class="col-4 col-md-2">
                     <div class="card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/MSI_logo.svg/1024px-MSI_logo.svg.png" 
+                    <!-- https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/MSI_logo.svg/1024px-MSI_logo.svg.png -->
+                        <img src="/img/logo/msi-logo_b.png" 
                             class="card-img-top p-4" alt="MSI">
                     </div>
                 </div>
                 <div class="col-4 col-md-2">
                     <div class="card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Sony_logo.svg/1024px-Sony_logo.svg.png" 
+                    <!-- https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Sony_logo.svg/1024px-Sony_logo.svg.png -->
+                        <img src="/img/logo/Sony.jpg" 
                             class="card-img-top p-4" alt="Sony">
                     </div>
                 </div>
@@ -368,8 +378,10 @@
                                     <a href="#" class="btn btn-primary">Khám phá</a>
                                 </div>
                                 <div class="col-4">
-                                    <img src="https://images.unsplash.com/photo-1606135185526-c2255f814c55?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&h=150&q=80" 
-                                        class="img-fluid" alt="Phụ kiện">
+                                    <img src="/img/phukien/bang-ve-inphic-c5_5e444972868e40c2899264f0bf06cbb9_large.webp" 
+                                     class="img-fluid" alt="Phụ kiện">
+                                    <!-- <img src="https://images.unsplash.com/photo-1606135185526-c2255f814c55?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&h=150&q=80" 
+                                        class="img-fluid" alt="Phụ kiện"> -->
                                 </div>
                             </div>
                         </div>
