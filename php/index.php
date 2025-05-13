@@ -49,41 +49,41 @@
             <div class="row g-4">
                 <div class="col-6 col-md-3 col-lg-2">
                     <div class="category-pill">
-                        <img src="https://cdn-icons-png.flaticon.com/128/15/15874.png" alt="Điện thoại">
+                        <img src="../img/danhmucnoibat/dienthoai.webp" alt="Điện thoại">
                         <p class="mb-0">Điện thoại</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
                     <div class="category-pill">
-                        <img src="https://cdn-icons-png.flaticon.com/128/3474/3474360.png" alt="Laptop">
+                        <img src="../img/danhmucnoibat/laptop.webp" alt="Laptop">
                         <p class="mb-0">Laptop</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
                     <div class="category-pill">
-                    <!-- https://cdn-icons-png.flaticon.com/128/2946/2946198.png -->
-                        <img src="/img/sanpham/tablet.png" alt="Tablet">
+                    
+                        <img src="../img/danhmucnoibat/maytinhbang.webp" alt="Tablet">
                         <p class="mb-0">Máy tính bảng</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
                     <div class="category-pill">
-                    <!-- https://cdn-icons-png.flaticon.com/128/2935/2935235.png -->
-                        <img src="/img/sanpham/smartwatch.png" alt="Smartwatch">
+                    
+                        <img src="../img/danhmucnoibat/dongho.webp" alt="Smartwatch">
                         <p class="mb-0">Đồng hồ thông minh</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
                     <div class="category-pill">
-                    <!-- https://cdn-icons-png.flaticon.com/128/3522/3522263.png -->
-                        <img src="/img/sanpham/headphone-symbol.png" alt="Tai nghe">
+                    
+                        <img src="../img/danhmucnoibat/tainghe.webp" alt="Tai nghe">
                         <p class="mb-0">Tai nghe</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
                     <div class="category-pill">
-                    <!-- https://cdn-icons-png.flaticon.com/128/2947/2947998.png -->
-                        <img src="/img/sanpham/phukien.png" alt="Phụ kiện">
+                    
+                        <img src="../img/danhmucnoibat/phukien.webp" alt="Phụ kiện">
                         <p class="mb-0">Phụ kiện</p>
                     </div>
                 </div>
