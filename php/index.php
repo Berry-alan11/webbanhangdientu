@@ -12,26 +12,23 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="https://images.unsplash.com/photo-1592431913823-7af6b323da9b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&h=400&q=80" class="d-block w-100 banner-img" alt="Banner 1">
+                        <img src="../img/banner/banner1.png" class="d-block w-100 banner-img" alt="Banner 1">
                         <div class="carousel-caption d-none d-md-block">
-                            <h2>iPhone 15 Pro Max</h2>
-                            <p>Công nghệ đỉnh cao, thiết kế sang trọng</p>
+                            
                             <button class="btn btn-primary">Mua ngay</button>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&h=400&q=80" class="d-block w-100 banner-img" alt="Banner 2">
+                        <img src="../img/banner/banner2.png" class="d-block w-100 banner-img" alt="Banner 2">
                         <div class="carousel-caption d-none d-md-block">
-                            <h2>Samsung Galaxy S24 Ultra</h2>
-                            <p>Trải nghiệm camera chuyên nghiệp</p>
+                            
                             <button class="btn btn-primary">Khám phá ngay</button>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="https://images.unsplash.com/photo-1610465299993-e6675c9f9efa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&h=400&q=80" class="d-block w-100 banner-img" alt="Banner 3">
+                        <img src="../img/banner/banner3.png" class="d-block w-100 banner-img" alt="Banner 3">
                         <div class="carousel-caption d-none d-md-block">
-                            <h2>Laptop Gaming MSI</h2>
-                            <p>Hiệu năng vượt trội, trải nghiệm game mượt mà</p>
+                            
                             <button class="btn btn-primary">Xem thêm</button>
                         </div>
                     </div>
