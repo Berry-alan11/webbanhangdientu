@@ -45,50 +45,59 @@
         </section>
 
         <!-- Category Pills -->
-        <section class="container mt-5">
-            <div class="row g-4">
-                <div class="col-6 col-md-3 col-lg-2">
-                    <div class="category-pill">
-                        <img src="../img/danhmucnoibat/dienthoai.webp" alt="Điện thoại">
-                        <p class="mb-0">Điện thoại</p>
-                    </div>
+        
+<section class="container mt-5">
+    <div class="row g-4">
+        <div class="col-6 col-md-3 col-lg-2">
+            <a href="phone.php" class="text-decoration-none">
+                <div class="category-pill">
+                    <img src="../img/danhmucnoibat/dienthoai.webp" alt="Điện thoại">
+                    <p class="mb-0">Điện thoại</p>
                 </div>
-                <div class="col-6 col-md-3 col-lg-2">
-                    <div class="category-pill">
-                        <img src="../img/danhmucnoibat/laptop.webp" alt="Laptop">
-                        <p class="mb-0">Laptop</p>
-                    </div>
+            </a>
+        </div>
+        <div class="col-6 col-md-3 col-lg-2">
+            <a href="laptop.php" class="text-decoration-none">
+                <div class="category-pill">
+                    <img src="../img/danhmucnoibat/laptop.webp" alt="Laptop">
+                    <p class="mb-0">Laptop</p>
                 </div>
-                <div class="col-6 col-md-3 col-lg-2">
-                    <div class="category-pill">
-                    
-                        <img src="../img/danhmucnoibat/maytinhbang.webp" alt="Tablet">
-                        <p class="mb-0">Máy tính bảng</p>
-                    </div>
+            </a>
+        </div>
+        <div class="col-6 col-md-3 col-lg-2">
+            <a href="tablet.php" class="text-decoration-none">
+                <div class="category-pill">
+                    <img src="../img/danhmucnoibat/maytinhbang.webp" alt="Tablet">
+                    <p class="mb-0">Máy tính bảng</p>
                 </div>
-                <div class="col-6 col-md-3 col-lg-2">
-                    <div class="category-pill">
-                    
-                        <img src="../img/danhmucnoibat/dongho.webp" alt="Smartwatch">
-                        <p class="mb-0">Đồng hồ thông minh</p>
-                    </div>
+            </a>
+        </div>
+        <div class="col-6 col-md-3 col-lg-2">
+            <a href="smartwatch.php" class="text-decoration-none">
+                <div class="category-pill">
+                    <img src="../img/danhmucnoibat/dongho.webp" alt="Smartwatch">
+                    <p class="mb-0">Đồng hồ smart</p>
                 </div>
-                <div class="col-6 col-md-3 col-lg-2">
-                    <div class="category-pill">
-                    
-                        <img src="../img/danhmucnoibat/tainghe.webp" alt="Tai nghe">
-                        <p class="mb-0">Tai nghe</p>
-                    </div>
+            </a>
+        </div>
+        <div class="col-6 col-md-3 col-lg-2">
+            <a href="headphone.php" class="text-decoration-none">
+                <div class="category-pill">
+                    <img src="../img/danhmucnoibat/tainghe.webp" alt="Tai nghe">
+                    <p class="mb-0">Tai nghe</p>
                 </div>
-                <div class="col-6 col-md-3 col-lg-2">
-                    <div class="category-pill">
-                    
-                        <img src="../img/danhmucnoibat/phukien.webp" alt="Phụ kiện">
-                        <p class="mb-0">Phụ kiện</p>
-                    </div>
+            </a>
+        </div>
+        <div class="col-6 col-md-3 col-lg-2">
+            <a href="accessory.php" class="text-decoration-none">
+                <div class="category-pill">
+                    <img src="../img/danhmucnoibat/phukien.webp" alt="Phụ kiện">
+                    <p class="mb-0">Phụ kiện</p>
                 </div>
-            </div>
-        </section>
+            </a>
+        </div>
+    </div>
+</section>
 
         <!-- Flash Sale -->
         <section class="container mt-5">
@@ -174,7 +183,7 @@
                     <div class="card product-card h-100">
                         <span class="discount-badge">-30%</span>
                         <!-- https://images.unsplash.com/photo-1542495392-7617d61c48b5?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=300&q=80 -->
-                        <img src="/img/headphone/router_engraving__d1q0o3p8lk2u_large.jpg" 
+                        <img src="../img/headphone/router_engraving__d1q0o3p8lk2u_large.jpg" 
                             class="card-img-top product-img" alt="Tai nghe Apple AirPods">
                         <div class="card-body">
                             <h5 class="card-title product-title">Apple AirPods Pro 2</h5>
@@ -200,7 +209,7 @@
         <section class="container mt-5">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h3 class="fw-bold">SẢN PHẨM MỚI</h3>
-                <a href="#" class="text-decoration-none">Xem thêm <i class="fas fa-chevron-right"></i></a>
+                <a href="productNew.php" class="text-decoration-none">Xem thêm <i class="fas fa-chevron-right"></i></a>
             </div>
             <div class="row g-4">
                 <!-- Product Card 1 -->
@@ -277,7 +286,7 @@
                     <div class="card product-card h-100">
                         <span class="badge bg-success position-absolute top-0 start-0 m-2">Mới</span>
                         <!-- https://images.unsplash.com/photo-1628815113969-0487917fc601?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&h=300&q=80 -->
-                        <img src="/img/loa/loa-bluetooth-sony-ult-field-1_5__1.webp" 
+                        <img src="../img/loa/loa-bluetooth-sony-ult-field-1_5__1.webp" 
                             class="card-img-top product-img" alt="Loa Sony">
                         <div class="card-body">
                             <h5 class="card-title product-title">Loa Bluetooth Sony SRS-XG300</h5>
@@ -298,52 +307,65 @@
             </div>
         </section>
 
-        <!-- Brands -->
-        <section class="container mt-5">
-            <h3 class="fw-bold mb-4">THƯƠNG HIỆU NỔI BẬT</h3>
-            <div class="row g-4">
-                <div class="col-4 col-md-2">
-                    <div class="card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1024px-Apple_logo_black.svg.png" 
-                            class="card-img-top p-4" alt="Apple">
-                    </div>
-                </div>
-                <div class="col-4 col-md-2">
-                    <div class="card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/1024px-Samsung_Logo.svg.png" 
-                            class="card-img-top p-4" alt="Samsung">
-                    </div>
-                </div>
-                <div class="col-4 col-md-2">
-                    <div class="card">
-                    <!-- https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Xiaomi_logo.svg/1024px-Xiaomi_logo.svg.png -->
-                        <img src="/img/logo/Xiaomi.jpg" 
-                            class="card-img-top p-4" alt="Xiaomi">
-                    </div>
-                </div>
-                <div class="col-4 col-md-2">
-                    <div class="card">
-                    <!-- https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Oppo_logo.svg/1024px-Oppo_logo.svg.png -->
-                        <img src="/img/logo/Oppo.jpg" 
-                            class="card-img-top p-4" alt="Oppo">
-                    </div>
-                </div>
-                <div class="col-4 col-md-2">
-                    <div class="card">
-                    <!-- https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/MSI_logo.svg/1024px-MSI_logo.svg.png -->
-                        <img src="/img/logo/msi-logo_b.png" 
-                            class="card-img-top p-4" alt="MSI">
-                    </div>
-                </div>
-                <div class="col-4 col-md-2">
-                    <div class="card">
-                    <!-- https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Sony_logo.svg/1024px-Sony_logo.svg.png -->
-                        <img src="/img/logo/Sony.jpg" 
-                            class="card-img-top p-4" alt="Sony">
-                    </div>
-                </div>
+       <!-- Brands -->
+<section class="container mt-5 brands-section">
+    <h3 class="fw-bold mb-4">THƯƠNG HIỆU NỔI BẬT</h3>
+    <div class="row g-4">
+        <div class="col-4 col-md-2">
+            <div class="brand-logo-container">
+                <img src="../img/logo/Apple_logo_black.svg.png" alt="Apple">
             </div>
-        </section>
+        </div>
+        <div class="col-4 col-md-2">
+            <div class="brand-logo-container">
+                <img src="../img/logo/Samsung_logo.svg.png" alt="Samsung">
+            </div>
+        </div>
+        <div class="col-4 col-md-2">
+            <div class="brand-logo-container">
+                <img src="../img/logo/Xiaomi.jpg" alt="Xiaomi">
+            </div>
+        </div>
+        <div class="col-4 col-md-2">
+            <div class="brand-logo-container">
+                <img src="../img/logo/Oppo.jpg" alt="Oppo">
+            </div>
+        </div>
+        <div class="col-4 col-md-2">
+            <div class="brand-logo-container">
+                <img src="../img/logo/msi-logo_b.png" alt="MSI">
+            </div>
+        </div>
+        <div class="col-4 col-md-2">
+            <div class="brand-logo-container">
+                <img src="../img/logo/Sony.jpg" alt="Sony">
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+    .brand-logo-container {
+       border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        padding: 15px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        transition: all 0.3s;
+        margin-bottom: 15px;
+        position: relative;
+        
+    }
+
+    .brand-logo-container img {
+        max-height: 70px;
+        max-width: 80%;
+    }
+
+</style>
 
         <!-- Promotional Banner -->
         <section class="container mt-5">
@@ -371,14 +393,13 @@
                             <div class="row align-items-center">
                                 <div class="col-8">
                                     <h4 class="fw-bold">PHỤ KIỆN THÔNG MINH</h4>
-                                    <p>Nâng tầm trải nghiệm công nghệ của bạn</p>
+                                    <p>Phụ kiện thông minh giúp tối ưu hiệu suất và nâng tầm phong cách sống</p>
                                     <a href="#" class="btn btn-primary">Khám phá</a>
                                 </div>
                                 <div class="col-4">
-                                    <img src="/img/phukien/bang-ve-inphic-c5_5e444972868e40c2899264f0bf06cbb9_large.webp" 
+                                    <img src="../img/phukien/bang-ve-inphic-c5_5e444972868e40c2899264f0bf06cbb9_large.webp" 
                                      class="img-fluid" alt="Phụ kiện">
-                                    <!-- <img src="https://images.unsplash.com/photo-1606135185526-c2255f814c55?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&h=150&q=80" 
-                                        class="img-fluid" alt="Phụ kiện"> -->
+                                    
                                 </div>
                             </div>
                         </div>
