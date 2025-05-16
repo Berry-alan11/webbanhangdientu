@@ -109,7 +109,27 @@ body {
 .btn-cart:hover {
     background-color: #0b5ed7;
 }
+/* thương hiệu nổi bật */
+.brand-logo-container {
+       border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        padding: 15px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        transition: all 0.3s;
+        margin-bottom: 15px;
+        position: relative;
+        
+    }
 
+    .brand-logo-container img {
+        max-height: 70px;
+        max-width: 80%;
+    }
 /* Footer Styles */
 footer {
     background-color: #212529;

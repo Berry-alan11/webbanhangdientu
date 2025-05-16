@@ -103,7 +103,7 @@
         <section class="container mt-5">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h3 class="fw-bold">FLASH SALE</h3>
-                <a href="#" class="text-decoration-none">Xem thêm <i class="fas fa-chevron-right"></i></a>
+                <a href="FlashSale.php" class="text-decoration-none">Xem thêm <i class="fas fa-chevron-right"></i></a>
             </div>
             <div class="row g-4">
                 <!-- Product Card 1 -->
