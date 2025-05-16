@@ -14,22 +14,19 @@
                     <div class="carousel-item active">
                         <img src="../img/banner/banner1.png" class="d-block w-100 banner-img" alt="Banner 1">
                         <div class="carousel-caption d-none d-md-block">
-                            
-                            <button class="btn btn-primary">Mua ngay</button>
+                             <a href="phone.php" class="btn btn-primary">Mua ngay</a>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="../img/banner/banner2.png" class="d-block w-100 banner-img" alt="Banner 2">
                         <div class="carousel-caption d-none d-md-block">
-                            
-                            <button class="btn btn-primary">Khám phá ngay</button>
+                             <a href="phone.php" class="btn btn-primary">Mua ngay</a>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="../img/banner/banner3.png" class="d-block w-100 banner-img" alt="Banner 3">
                         <div class="carousel-caption d-none d-md-block">
-                            
-                            <button class="btn btn-primary">Xem thêm</button>
+                        <a href="phone.php" class="btn btn-primary">Mua ngay</a>
                         </div>
                     </div>
                 </div>
@@ -377,7 +374,7 @@
                                 <div class="col-8">
                                     <h4 class="fw-bold">LAPTOP GAMING</h4>
                                     <p>Hiệu năng mạnh mẽ, trải nghiệm chơi game tuyệt vời</p>
-                                    <a href="#" class="btn btn-primary">Xem ngay</a>
+                                    <a href="laptop.php" class="btn btn-primary">Xem ngay</a>
                                 </div>
                                 <div class="col-4">
                                     <img src="https://images.unsplash.com/photo-1593642702909-dec73df255d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&h=150&q=80" 
@@ -394,7 +391,7 @@
                                 <div class="col-8">
                                     <h4 class="fw-bold">PHỤ KIỆN THÔNG MINH</h4>
                                     <p>Phụ kiện thông minh giúp tối ưu hiệu suất và nâng tầm phong cách sống</p>
-                                    <a href="#" class="btn btn-primary">Khám phá</a>
+                                    <a href="accessorie.php" class="btn btn-primary">Khám phá</a>
                                 </div>
                                 <div class="col-4">
                                     <img src="../img/phukien/bang-ve-inphic-c5_5e444972868e40c2899264f0bf06cbb9_large.webp" 
