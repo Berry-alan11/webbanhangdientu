@@ -6,36 +6,36 @@
                     <h2 class="fw-bold text-white">SUDES<span class="text-danger">PHONE</span></h2>
                     <p class="mt-3">SudesPhone - Hệ thống bán lẻ thiết bị điện tử chính hãng hàng đầu Việt Nam với hơn 100 cửa hàng trên toàn quốc.</p>
                     <div class="social-links mt-3">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.facebook.com/sudesphone"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/sudesphone"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/sudesphone"><i class="fab fa-youtube"></i></a>
+                        <a href="https://https://www.tiktok.com/sudesphone"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
                 <div class="col-12 col-md-2 footer-links">
                     <h5>Thông tin</h5>
                     <ul>
-                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="gioithieu.php">Giới thiệu</a></li>
                         <li><a href="#">Tin tức</a></li>
                         <li><a href="#">Khuyến mãi</a></li>
-                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="tuyendung.php">Tuyển dụng</a></li>
                         <li><a href="#">Liên hệ</a></li>
                     </ul>
                 </div>
                 <div class="col-12 col-md-2 footer-links">
                     <h5>Chính sách</h5>
                     <ul>
-                        <li><a href="#">Chính sách bảo hành</a></li>
-                        <li><a href="#">Chính sách đổi trả</a></li>
-                        <li><a href="#">Chính sách giao hàng</a></li>
-                        <li><a href="#">Chính sách bảo mật</a></li>
-                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="chinhsachbaohanh.php">Chính sách bảo hành</a></li>
+                        <li><a href="chinhsachdoitra.php">Chính sách đổi trả</a></li>
+                        <li><a href="chinhsachgiaohang.php">Chính sách giao hàng</a></li>
+                        <li><a href="chinhsachbaomat.php">Chính sách bảo mật</a></li>
+                        <li><a href="dieukhoansudung.php">Điều khoản sử dụng</a></li>
                     </ul>
                 </div>
                 <div class="col-12 col-md-4 footer-links">
                     <h5>Liên hệ</h5>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt me-2"></i> 123 Nguyễn Văn Linh, Q.7, TP.HCM</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 123 Đống Đa, Quy Nhơn, Bình Định</li>
                         <li><i class="fas fa-phone-alt me-2"></i> Hotline: 1900 6750</li>
                         <li><i class="fas fa-envelope me-2"></i> Email: support@sudesphone.com</li>
                     </ul>

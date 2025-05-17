@@ -33,7 +33,7 @@
             
             echo '<div class="col-md-3" style="margin-bottom: 30px;">
                 <div class="card h-100" style="position: relative;">
-                    <div class="badge bg-danger position-absolute top-0 start-0 m-2">-' . $discount . '%</div>
+                    <div class="badge bg-danger position-absolute top-0 end-0 m-2">-' . $discount . '%</div>
                     <img src="' . $product["product_image"] . '" class="card-img-top" alt="' . $product["product_name"] . '" style="height: 250px; object-fit: contain;">
                     <div class="card-body">
                         <h5 class="card-title">' . $product["product_name"] . '</h5>
