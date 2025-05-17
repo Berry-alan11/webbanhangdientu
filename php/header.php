@@ -64,7 +64,7 @@
                     <div class="col-12">
                         <ul class="nav">
                             <li class="nav-item">
-                                <a class="nav-link active fw-bold" href="#">Trang chủ</a>
+                                <a class="nav-link active fw-bold" href="index.php">Trang chủ</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="phone.php">Điện thoại</a>
@@ -85,13 +85,13 @@
                                 <a class="nav-link" href="accessorie.php">Phụ kiện</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Khuyến mãi</a>
+                                <a class="nav-link" href="discount.php">Khuyến mãi</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Tin tức</a>
+                                <a class="nav-link" href="news.php">Tin tức</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Liên hệ</a>
+                                <a class="nav-link" href="contact.php">Liên hệ</a>
                             </li>
                         </ul>
                     </div>

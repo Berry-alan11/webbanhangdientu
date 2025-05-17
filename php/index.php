@@ -86,7 +86,7 @@
             </a>
         </div>
         <div class="col-6 col-md-3 col-lg-2">
-            <a href="accessory.php" class="text-decoration-none">
+            <a href="accessorie.php" class="text-decoration-none">
                 <div class="category-pill">
                     <img src="../img/danhmucnoibat/phukien.webp" alt="Phụ kiện">
                     <p class="mb-0">Phụ kiện</p>
