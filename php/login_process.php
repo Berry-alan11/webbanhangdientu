@@ -1,4 +1,7 @@
 <?php
+session_start(); // Bắt đầu phiên làm việc
+    //include 'header.php';//Kêt nối tới header
+
     include'dbconnect.php';//Kêt nối tới cơ sở dữ liệu
 
     // $email=$_GET['email'];
@@ -25,8 +28,8 @@
             }else{echo"Sai password";}
         }else{echo"Ten dang nhap khong ton tai";}
     }
-   // $stmt->close();
-    //$conn->close();
+    $stmt->close();
+    $conn->close();
 ?>
 
 

@@ -1,3 +1,8 @@
+<?php
+//session_start();
+include 'header.php'; // Kết nối đến cơ sở dữ liệu
+?>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -54,3 +59,8 @@
   </div>
 </body>
 </html>
+
+<?php
+//session_start();
+include 'footer.php'; // Kết nối đến cơ sở dữ liệu
+?>
