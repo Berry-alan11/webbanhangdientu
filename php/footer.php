@@ -16,10 +16,10 @@
                     <h5>Thông tin</h5>
                     <ul>
                         <li><a href="gioithieu.php">Giới thiệu</a></li>
-                        <li><a href="#">Tin tức</a></li>
-                        <li><a href="#">Khuyến mãi</a></li>
+                        <li><a href="news.php">Tin tức</a></li>
+                        <li><a href="discount.php">Khuyến mãi</a></li>
                         <li><a href="tuyendung.php">Tuyển dụng</a></li>
-                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="contact.php">Liên hệ</a></li>
                     </ul>
                 </div>
                 <div class="col-12 col-md-2 footer-links">
