@@ -17,7 +17,14 @@
                     <div class="card-body">
                         <h5 class="card-title">' . $smartwatch["product_name"] . '</h5>
                         <p class="card-text" style="color: red; font-weight: bold;">' . number_format($smartwatch["product_price"]) . '₫</p>
-                        <a href="cart.php?action=add&product_id=' . ($smartwatch["product_id"]) . '" class="btn btn-primary">Thêm vào giỏ</a>
+                        <div class="d-flex justify-content-between">
+                            <a href="cart.php?action=add&product_id=' . ($smartwatch["product_id"]) . '" class="btn btn-primary">
+                                <i class="fas fa-cart-plus"></i> Thêm vào giỏ
+                            </a>
+                            <a href="wishlist.php?action=add&product_id=' . ($smartwatch["product_id"]) . '" class="btn btn-outline-danger">
+                                <i class="fas fa-heart"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>';

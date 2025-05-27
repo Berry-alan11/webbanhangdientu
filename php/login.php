@@ -1,6 +1,22 @@
 <?php
-//session_start();
-include 'header.php'; // Kết nối đến cơ sở dữ liệu
+session_start();
+
+// Kiểm tra nếu cần hủy session hoàn toàn
+if (isset($_SESSION['destroy_after']) && $_SESSION['destroy_after'] === true) {
+    // Lưu thông báo tạm thời
+    $logout_message = $_SESSION['logout_message'] ?? null;
+    
+    // Hủy session
+    session_destroy();
+    
+    // Khởi tạo session mới
+    session_start();
+    
+    // Đặt lại thông báo nếu có
+    if ($logout_message) {
+        $_SESSION['logout_message'] = $logout_message;
+    }
+}
 ?>
 
 <html lang="en">
@@ -17,6 +33,25 @@ include 'header.php'; // Kết nối đến cơ sở dữ liệu
 <body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
   <div class="bg-white rounded-md shadow-md w-full max-w-sm p-6">
     <h2 class="text-center text-gray-900 font-normal mb-6">ĐĂNG NHẬP</h2>
+    
+    <?php if(isset($_SESSION['logout_message'])): ?>
+      <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+        <?php 
+          echo $_SESSION['logout_message']; 
+          unset($_SESSION['logout_message']);
+        ?>
+      </div>
+    <?php endif; ?>
+    
+    <?php if(isset($_SESSION['login_error'])): ?>
+      <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+        <?php 
+          echo $_SESSION['login_error']; 
+          unset($_SESSION['login_error']);
+        ?>
+      </div>
+    <?php endif; ?>
+    
     <form class="space-y-4" action="login_process.php" method="post">
       <input
         type="email"
@@ -39,7 +74,7 @@ include 'header.php'; // Kết nối đến cơ sở dữ liệu
     </form>
     <div class="mt-3 flex justify-between text-gray-700 text-sm">
       <a href="#" class="hover:underline">Quên mật khẩu?</a>
-      <a href="#" class="hover:underline">Đăng ký tại đây</a>
+      <a href="register.php" class="hover:underline">Đăng ký tại đây</a>
     </div>
     <p class="text-center text-gray-700 text-sm mt-3">hoặc đăng nhập qua</p>
     <div class="mt-3 flex space-x-2">
@@ -56,11 +91,14 @@ include 'header.php'; // Kết nối đến cơ sở dữ liệu
         <span>Google</span>
       </button>
     </div>
+    <div class="mt-4 text-center">
+      <a href="index.php" class="text-blue-600 hover:underline">Quay lại trang chủ</a>
+    </div>
   </div>
 </body>
 </html>
 
 <?php
 //session_start();
-include 'footer.php'; // Kết nối đến cơ sở dữ liệu
+//include 'footer.php'; // Kết nối đến cơ sở dữ liệu
 ?>

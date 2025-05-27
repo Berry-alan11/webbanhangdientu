@@ -15,11 +15,38 @@ document.addEventListener('DOMContentLoaded', function() {
             const productName = this.getAttribute('data-name');
             const productPrice = this.getAttribute('data-price');
             
-            // Hiển thị thông báo
-            alert(`Đã thêm sản phẩm ${productName} vào giỏ hàng!`);
-            
-            // Trong thực tế, bạn sẽ thêm sản phẩm vào giỏ hàng thông qua API hoặc lưu trữ cục bộ
-            console.log(`Đã thêm sản phẩm: ID=${productId}, Tên=${productName}, Giá=${productPrice}`);
+            // Gửi dữ liệu đến server để cập nhật giỏ hàng
+            fetch('update_cart.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `action=add&product_id=${productId}&quantity=1`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.success) {
+                    // Hiển thị thông báo thành công
+                    alert(`Đã thêm sản phẩm ${productName} vào giỏ hàng!`);
+                    // Reload trang để cập nhật số lượng giỏ hàng
+                    window.location.reload();
+                } else {
+                    // Nếu chưa đăng nhập hoặc có lỗi khác
+                    if(data.message) {
+                        alert(data.message);
+                        // Nếu chưa đăng nhập, chuyển hướng đến trang đăng nhập
+                        if(data.message.includes('đăng nhập')) {
+                            window.location.href = 'login.php';
+                        }
+                    } else {
+                        alert('Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng.');
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng.');
+            });
         });
     });
 

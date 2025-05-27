@@ -1,8 +1,39 @@
+<?php
+session_start();
+
+// Ensure session variables are properly initialized
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+// Get cart count for logged in user
+$cart_count = 0;
+if(isset($_SESSION['iduser']) && !empty($_SESSION['iduser'])) {
+    // Include database connection
+    include("dbconnect.php");
+    
+    $user_id = $_SESSION['iduser'];
+    $count_sql = "SELECT SUM(quantity) as total FROM cart WHERE user_id = ?";
+    $count_stmt = $conn->prepare($count_sql);
+    $count_stmt->bind_param("i", $user_id);
+    $count_stmt->execute();
+    $result = $count_stmt->get_result();
+    
+    if($row = $result->fetch_assoc()) {
+        $cart_count = $row['total'] ? $row['total'] : 0;
+    }
+    
+    $count_stmt->close();
+}
+?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>SudesPhone - Cửa hàng đồ điện tử</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -24,8 +55,21 @@
                         <span class="text-white ms-4"><i class="fas fa-envelope me-2"></i>Email: support@sudesphone.com</span>
                     </div>
                     <div class="col-md-6 text-end">
-                        <a href="login.php" class="text-white me-3"><i class="fas fa-user me-1"></i>Đăng nhập</a>
-                        <a href="register.php" class="text-white"><i class="fas fa-user-plus me-1"></i>Đăng ký</a>
+                        <?php if(isset($_SESSION['email']) && !empty($_SESSION['email'])): ?>
+                            <div class="dropdown d-inline-block position-relative">
+                                <button type="button" class="btn btn-link text-white dropdown-toggle p-0 border-0" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-user-circle me-1"></i><?php echo $_SESSION['email']; ?>
+                                </button>
+                                <ul class="dropdown-menu position-absolute end-0" aria-labelledby="userDropdown" style="z-index: 1050;">
+                                    <li><a class="dropdown-item" href="my_orders.php"><i class="fas fa-shopping-bag me-2"></i>Đơn hàng của tôi</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt me-2"></i>Đăng xuất</a></li>
+                                </ul>
+                            </div>
+                        <?php else: ?>
+                            <a href="login.php" class="text-white me-3"><i class="fas fa-user me-1"></i>Đăng nhập</a>
+                            <a href="register.php" class="text-white"><i class="fas fa-user-plus me-1"></i>Đăng ký</a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -41,16 +85,23 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <form class="d-flex mx-auto" style="width: 50%;">
-                        <input class="form-control me-2" type="search" placeholder="Tìm kiếm sản phẩm...">
+                    <form class="d-flex mx-auto" style="width: 50%;" action="search.php" method="GET">
+                        <input class="form-control me-2" type="search" name="keyword" placeholder="Tìm kiếm sản phẩm..." required>
                         <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
                     </form>
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-heart fa-lg"></i></a>
+                            <a class="nav-link" href="wishlist.php"><i class="fas fa-heart fa-lg"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="product.php"><i class="fas fa-shopping-cart fa-lg"></i></a>
+                            <a class="nav-link position-relative" href="cart.php">
+                                <i class="fas fa-shopping-cart fa-lg"></i>
+                                <?php if($cart_count > 0): ?>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    <?php echo $cart_count; ?>
+                                </span>
+                                <?php endif; ?>
+                            </a>
                         </li>
                     </ul>
                 </div>
