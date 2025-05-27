@@ -64,5 +64,21 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
     <script src="main.js"></script>
+    
+    <!-- Initialize dropdowns -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ensure all dropdowns work properly
+            var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
+            var dropdownList = dropdownElementList.map(function(dropdownToggleEl) {
+                return new bootstrap.Dropdown(dropdownToggleEl);
+            });
+            
+            // Fix any z-index issues
+            document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
+                menu.style.zIndex = "1050";
+            });
+        });
+    </script>
 </body>
 </html>

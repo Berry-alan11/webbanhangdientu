@@ -1,75 +1,36 @@
 <?php
-require 'vendor/autoload.php'; // Sử dụng Composer autoload để tự động tải các class của PHPMailer
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-
+session_start();
+require 'dbconnect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = htmlspecialchars($_POST['name']);
     $email = htmlspecialchars($_POST['email']);
     $message = htmlspecialchars($_POST['message']);
-
-    $mail = new PHPMailer(true);
-
-    try {
-        //Server settings
-        $mail->isSMTP();
-        $mail->Host       = 'smtp.gmail.com'; // SMTP server của Gmail
-        $mail->SMTPAuth   = true;
-        $mail->Username   = 'vibadao123a@gmail.com'; // Gmail của bạn
-        $mail->Password   = 'ufvvvtdhepkwjgqx';    // App password (không phải mật khẩu Gmail thông thường)
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = 587;
-        $mail->CharSet    = 'UTF-8';
-
-        //Recipients
-        $mail->setFrom("vilaptrinh@gmail.com", $name);
-        // $mail->addAddress('support@webbanhangdientu.vn', 'Web Bán Hàng Điện Tử');
-        $mail->addAddress('thanhkha23122005@gmail.com', "Web Bán Hàng Điện Tử"); // Địa chỉ email nhận thông báo
-        $mail->addReplyTo("vibadao123@gmail.com", $name); // Địa chỉ email trả lời
-        
-
-        //Content
-        $mail->isHTML(false);
-        $mail->Subject = "Liên hệ từ khách hàng: $name";
-        $mail->Body    = "Họ tên: $name\nEmail: $email\n\nNội dung:\n$message";
-
-        $mail->send();
-        echo "<script>alert('Gửi liên hệ thành công!');window.location='contact.php';</script>";
-    } catch (Exception $e) {
-        echo "<script>alert('Gửi liên hệ thất bại: {$mail->ErrorInfo}');window.location='contact.php';</script>";
+    
+    // Check if all fields are filled
+    if (empty($name) || empty($email) || empty($message)) {
+        $_SESSION['contact_error'] = "Vui lòng điền đầy đủ thông tin.";
+        header("Location: contact.php");
+        exit;
     }
-}
-?>
-<!-- ?php
-require 'database.php';
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name    = trim($_POST['name']);
-    $email   = trim($_POST['email']);
-    $message = trim($_POST['message']);
-
-    if (!empty($name) && !empty($email) && !empty($message)) {
-        $stmt = $conn->prepare("INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $name, $email, $message);
-
-        if ($stmt->execute()) {
-            echo "<div style='padding: 20px;'>
-                    <h4>✔️ Cảm ơn bạn đã liên hệ!</h4>
-                    <p>Chúng tôi sẽ phản hồi sớm nhất có thể.</p>
-                    <p><a href='contact.php'>Quay lại trang liên hệ</a></p>
-                  </div>";
-        } else {
-            echo "<p>❌ Lỗi khi gửi liên hệ. Vui lòng thử lại.</p>";
-        }
-
-        $stmt->close();
+    
+    // Insert the contact message into the database
+    $stmt = $conn->prepare("INSERT INTO contacts (name, email, message, created_at) VALUES (?, ?, ?, NOW())");
+    $stmt->bind_param("sss", $name, $email, $message);
+    
+    if ($stmt->execute()) {
+        $_SESSION['contact_success'] = "Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất có thể.";
+        header("Location: contact.php");
+        exit;
     } else {
-        echo "<p>❌ Vui lòng điền đầy đủ thông tin.</p>";
+        $_SESSION['contact_error'] = "Có lỗi xảy ra: " . $conn->error;
+        header("Location: contact.php");
+        exit;
     }
-
-    $conn->close();
+    
+    $stmt->close();
 } else {
     header("Location: contact.php");
     exit;
-} -->
+}
+?>

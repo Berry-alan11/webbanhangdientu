@@ -3,6 +3,26 @@
 <div class="container mt-5 mb-5">
     <h2 class="mb-4">Liên hệ với chúng tôi</h2>
 
+    <?php if(isset($_SESSION['contact_success'])): ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <?php 
+                echo $_SESSION['contact_success']; 
+                unset($_SESSION['contact_success']); 
+            ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endif; ?>
+
+    <?php if(isset($_SESSION['contact_error'])): ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <?php 
+                echo $_SESSION['contact_error']; 
+                unset($_SESSION['contact_error']); 
+            ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endif; ?>
+
     <p>Nếu bạn có bất kỳ câu hỏi, góp ý hoặc cần hỗ trợ, vui lòng điền vào biểu mẫu bên dưới hoặc liên hệ trực tiếp với chúng tôi qua thông tin liên hệ.</p>
 
     <div class="row mt-4">

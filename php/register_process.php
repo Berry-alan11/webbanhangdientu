@@ -1,6 +1,6 @@
 <?php 
 $servername = "localhost";
-$database = "websale";
+$database = "webbanhangdientu";
 $username = "root";
 $password = "";
 
@@ -25,7 +25,7 @@ $email=$_POST['email'];
 $phonenumber=(int)$_POST['phonenumber'];//ép kiểu phone về int
 $passwords=password_hash($_POST['passwords'], PASSWORD_DEFAULT);
 
-// Dùng câu lệnh insert để chèn dữ liệu vào bảng users trong database websale
+// Dùng câu lệnh insert để chèn dữ liệu vào bảng users trong database webbanhangdientu
 $sql = "INSERT INTO users(lastname, firstname, email, phonenumber, passwords) VALUES (?,?,?,?,?)";
 $stmt = $conn->prepare($sql);
 // Kiểm tra kết nối để biết việc chuẩn bị có thành công hay chưa

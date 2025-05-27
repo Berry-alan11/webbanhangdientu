@@ -1,6 +1,6 @@
 <?php
 $servername = "localhost";
-$database = "websale";
+$database = "webbanhangdientu";
 $username = "root";
 $password = "";
 
@@ -13,7 +13,7 @@ $conn = new mysqli($servername, $username, $password, $database);
 if($conn->connect_error){
     die("Connection failed (kết nối bị lỗi): ".$conn->connect_error);
 }
-echo"Connected sucessfully";
+// echo"Connected sucessfully";
 //mysqli_close($conn);
 
 ?>

@@ -1,5 +1,31 @@
 <!--GỌI PHẦN HEADER CHUNG CỦA TRANG WEB-->
 <?php include("header.php"); ?>
+
+<!-- Thông báo đăng nhập/đăng xuất thành công -->
+<?php if(isset($_SESSION['login_success'])): ?>
+<div class="container mt-3">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <?php 
+            echo $_SESSION['login_success']; 
+            unset($_SESSION['login_success']); // Xóa thông báo sau khi hiển thị
+        ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>
+<?php endif; ?>
+
+<?php if(isset($_SESSION['message'])): ?>
+<div class="container mt-3">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <?php 
+            echo $_SESSION['message']; 
+            unset($_SESSION['message']); // Xóa thông báo sau khi hiển thị
+        ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>
+<?php endif; ?>
+
 <!-- Main Content Section Placeholder -->
 <main>
         <!-- Banner Carousel -->
