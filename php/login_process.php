@@ -52,36 +52,3 @@ session_start(); // Bắt đầu phiên làm việc
     $conn->close();
 ?>
 
-
-<!-- session_start();
-include 'config.php'; // Kết nối đến cơ sở dữ liệu
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    // Chuẩn bị truy vấn
-    $stmt = $conn->prepare("SELECT id, username, password FROM users WHERE username = ?");
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        $user = $result->fetch_assoc();
-        
-        // Kiểm tra mật khẩu
-        if (password_verify($password, $user['password'])) {
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
-            header("Location: dashboard.php"); // Chuyển hướng sau khi đăng nhập thành công
-            exit();
-        } else {
-            echo "Sai mật khẩu!";
-        }
-    } else {
-        echo "Tên đăng nhập không tồn tại!";
-    }
-
-    $stmt->close();
-    $conn->close();
-} -->
