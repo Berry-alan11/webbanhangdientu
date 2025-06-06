@@ -1,9 +1,11 @@
 <?php
+// --- PHẦN 1: KẾT NỐI VÀ KIỂM TRA ĐĂNG NHẬP ---
 include("header.php");
 include("dbconnect.php");
 
+// Kiểm tra đăng nhập
 if (!isset($_SESSION['iduser'])) {
-    // Nếu chưa đăng nhập, chuyển về trang đăng nhập
+    // Chuyển về trang đăng nhập 
     $_SESSION['redirect_after_login'] = 'my_orders.php';
     echo "<script>alert('Vui lòng đăng nhập để xem đơn hàng của bạn!'); window.location.href='login.php';</script>";
     exit();
@@ -11,18 +13,11 @@ if (!isset($_SESSION['iduser'])) {
 
 $user_id = $_SESSION['iduser'];
 
-// Lấy danh sách đơn hàng của người dùng
-$orders_sql = "SELECT * FROM orders WHERE user_id = ? ORDER BY created_at DESC";
-$orders_stmt = $conn->prepare($orders_sql);
-if ($orders_stmt === FALSE) {
-    echo "Lỗi chuẩn bị truy vấn đơn hàng: " . $conn->error;
-    exit();
-}
+// --- PHẦN 2: LẤY DANH SÁCH ĐƠN HÀNG ---
+$orders_sql = "SELECT * FROM orders WHERE user_id = $user_id ORDER BY created_at DESC";
+$orders_result = $conn->query($orders_sql);
 
-$orders_stmt->bind_param("i", $user_id);
-$orders_stmt->execute();
-$orders_result = $orders_stmt->get_result();
-
+// --- PHẦN 3: HÀM HỖ TRỢ ---
 // Hàm chuyển đổi trạng thái đơn hàng sang màu sắc badge
 function getStatusBadge($status) {
     switch ($status) {
@@ -42,13 +37,14 @@ function getStatusBadge($status) {
 }
 ?>
 
+<!-- --- PHẦN 4: HIỂN THỊ DANH SÁCH ĐƠN HÀNG --- -->
 <div class="container-fluid py-4" style="background-color: #f5f5f5;">
     <div class="container">
         <h2 class="mb-4 text-primary fw-bold">
             <i class="fas fa-shopping-bag me-2"></i>Đơn hàng của tôi
         </h2>
 
-        <?php if ($orders_result->num_rows > 0): ?>
+        <?php if ($orders_result && $orders_result->num_rows > 0): ?>
             <div class="card shadow-sm mb-4">
                 <div class="card-body">
                     <div class="table-responsive">
@@ -104,6 +100,7 @@ function getStatusBadge($status) {
                 </div>
             </div>
         <?php else: ?>
+            <!-- Hiển thị khi không có đơn hàng -->
             <div class="card shadow-sm">
                 <div class="card-body text-center py-5">
                     <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/a60759ad1dabe909c46a817ecbf71878.png" alt="Empty Orders" style="width: 150px;" class="mb-3">
@@ -119,7 +116,7 @@ function getStatusBadge($status) {
 </div>
 
 <?php
-$orders_stmt->close();
+// --- PHẦN 5: KẾT THÚC ---
 $conn->close();
 include("footer.php");
 ?> 

@@ -1,29 +1,41 @@
 <?php
-include("header.php");
+// --- PHẦN 1: THIẾT LẬP ---
+// Kết nối với cơ sở dữ liệu
 include("dbconnect.php");
 
-// Lấy từ khóa tìm kiếm
-$keyword = isset($_GET['keyword']) ? trim($_GET['keyword']) : '';
-// Nếu không có từ khóa tìm kiếm, chuyển hướng về trang chủ
+// --- PHẦN 2: LẤY TỪ KHÓA TÌM KIẾM ---
+// Lấy từ khóa từ URL (ví dụ: search.php?keyword=dienthoai)
+$keyword = '';
+if(isset($_GET['keyword'])) {
+    $keyword = trim($_GET['keyword']);  // Xóa khoảng trắng thừa
+}
+
+// Nếu không có từ khóa, quay về trang chủ
 if(empty($keyword)) {
     header("Location: index.php");
     exit();
 }
-// Truy vấn tìm kiếm sản phẩm
-$sql = "SELECT * FROM products WHERE product_name LIKE ?";//Truy vấn tìm kiếm sản phẩm
-$stmt = $conn->prepare($sql);// Chuẩn bị truy vấn
-$searchTerm = "%" . $keyword . "%";// Từ khóa tìm kiếm
-$stmt->bind_param("s", $searchTerm);// Thực thi truy vấn
-$stmt->execute();// Lấy kết quả
-$result = $stmt->get_result();// Lấy kết quả
+
+// Kết nối với header
+include("header.php");
+
+// --- PHẦN 3: TÌM KIẾM SẢN PHẨM ---
+$searchTerm = "%" . $keyword . "%";  // Thêm % để tìm kiếm mọi từ có chứa keyword
+$sql = "SELECT * FROM products WHERE product_name LIKE '$searchTerm'";
+$result = $conn->query($sql);  // Thực hiện truy vấn
 ?>
 
+<!-- --- PHẦN 4: HIỂN THỊ KẾT QUẢ --- -->
 <main class="container my-5">
     <h2 class="mb-4">Kết quả tìm kiếm: "<?php echo htmlspecialchars($keyword); ?>"</h2>
     
-    <?php if($result->num_rows > 0): ?>
+    <?php 
+    // Kiểm tra xem có kết quả nào không
+    if($result && $result->num_rows > 0): ?>
         <div class="row g-4">
-            <?php while($product = $result->fetch_assoc()): ?>
+            <?php 
+            // Hiển thị từng sản phẩm tìm được
+            while($product = $result->fetch_assoc()): ?>
                 <div class="col-6 col-md-4 col-lg-3">
                     <div class="card product-card h-100">
                         <?php if(!empty($product['product_discount'])): ?>
@@ -44,6 +56,7 @@ $result = $stmt->get_result();// Lấy kết quả
             <?php endwhile; ?>
         </div>
     <?php else: ?>
+        <!-- Hiển thị thông báo nếu không tìm thấy sản phẩm -->
         <div class="alert alert-info">
             <p>Không tìm thấy sản phẩm. <a href="index.php">Quay về trang chủ</a></p>
         </div>
@@ -51,7 +64,8 @@ $result = $stmt->get_result();// Lấy kết quả
 </main>
 
 <?php 
-$stmt->close();
+// --- PHẦN 5: KẾT THÚC ---
+// Đóng kết nối database và hiển thị footer
 $conn->close();
 include("footer.php"); 
 ?> 

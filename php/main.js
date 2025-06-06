@@ -66,8 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 alert('Đã xóa khỏi danh sách yêu thích!');
             }
-            
-            // Trong thực tế, bạn sẽ cập nhật trạng thái yêu thích thông qua API
+    
             console.log(`Sản phẩm ID=${productId} ${isFavorited ? 'đã thêm vào' : 'đã xóa khỏi'} danh sách yêu thích`);
         });
     });
@@ -79,8 +78,6 @@ document.addEventListener('DOMContentLoaded', function() {
             // Thực hiện lọc sản phẩm theo giá
             const selectedValue = this.value;
             console.log(`Lọc sản phẩm theo giá: ${selectedValue}`);
-            
-            // Trong thực tế, bạn sẽ áp dụng bộ lọc và cập nhật giao diện người dùng
         });
     }
 

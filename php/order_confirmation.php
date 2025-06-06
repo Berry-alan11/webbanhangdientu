@@ -1,9 +1,11 @@
 <?php
+// --- PHẦN 1: KẾT NỐI VÀ KIỂM TRA ĐĂNG NHẬP ---
 include("header.php");
 include("dbconnect.php");
 
+// Kiểm tra đăng nhập
 if (!isset($_SESSION['iduser'])) {
-    // Nếu chưa đăng nhập, chuyển về trang đăng nhập
+    // Chuyển về trang đăng nhập
     $_SESSION['redirect_after_login'] = 'index.php';
     echo "<script>alert('Vui lòng đăng nhập để xem đơn hàng!'); window.location.href='login.php';</script>";
     exit();
@@ -12,25 +14,18 @@ if (!isset($_SESSION['iduser'])) {
 $user_id = $_SESSION['iduser'];
 $order_id = isset($_GET['order_id']) ? (int)$_GET['order_id'] : 0;
 
+// Kiểm tra đơn hàng hợp lệ
 if ($order_id <= 0) {
-    // Nếu không có order_id hợp lệ, chuyển về trang chủ
     echo "<script>alert('Không tìm thấy thông tin đơn hàng!'); window.location.href='index.php';</script>";
     exit();
 }
 
-// Lấy thông tin đơn hàng
-$order_sql = "SELECT * FROM orders WHERE id = ? AND user_id = ?";
-$order_stmt = $conn->prepare($order_sql);
-if ($order_stmt === FALSE) {
-    echo "Lỗi chuẩn bị truy vấn đơn hàng: " . $conn->error;
-    exit();
-}
+// --- PHẦN 2: LẤY THÔNG TIN ĐƠN HÀNG ---
+// Lấy thông tin đơn hàng chính
+$order_sql = "SELECT * FROM orders WHERE id = $order_id AND user_id = $user_id";
+$order_result = $conn->query($order_sql);
 
-$order_stmt->bind_param("ii", $order_id, $user_id);
-$order_stmt->execute();
-$order_result = $order_stmt->get_result();
-
-if ($order_result->num_rows == 0) {
+if (!$order_result || $order_result->num_rows == 0) {
     // Đơn hàng không tồn tại hoặc không thuộc về người dùng này
     echo "<script>alert('Không tìm thấy đơn hàng!'); window.location.href='index.php';</script>";
     exit();
@@ -38,23 +33,16 @@ if ($order_result->num_rows == 0) {
 
 $order = $order_result->fetch_assoc();
 
-// Lấy chi tiết đơn hàng
-$details_sql = "SELECT * FROM order_details WHERE order_id = ?";
-$details_stmt = $conn->prepare($details_sql);
-if ($details_stmt === FALSE) {
-    echo "Lỗi chuẩn bị truy vấn chi tiết đơn hàng: " . $conn->error;
-    exit();
-}
+// Lấy chi tiết các sản phẩm trong đơn hàng
+$details_sql = "SELECT * FROM order_details WHERE order_id = $order_id";
+$details_result = $conn->query($details_sql);
 
-$details_stmt->bind_param("i", $order_id);
-$details_stmt->execute();
-$details_result = $details_stmt->get_result();
-
-// Hằng số
+// Hằng số tính toán
 $shipping = 30000; // Phí vận chuyển
 $discount = 0;     // Giảm giá
 ?>
 
+<!-- --- PHẦN 3: HIỂN THỊ GIAO DIỆN XÁC NHẬN ĐƠN HÀNG --- -->
 <div class="container-fluid py-4" style="background-color: #f5f5f5;">
     <div class="container">
         <div class="row justify-content-center">
@@ -71,6 +59,7 @@ $discount = 0;     // Giảm giá
                         </div>
                     </div>
                     <div class="card-body p-4">
+                        <!-- Thông tin cửa hàng -->
                         <div class="text-center mb-4">
                             <h2 class="text-primary fw-bold">SUDES<span class="text-danger">PHONE</span></h2>
                             <p class="mb-0">Địa chỉ: 123 Đường ABC, Quận XYZ, TP. Hồ Chí Minh</p>
@@ -78,6 +67,7 @@ $discount = 0;     // Giảm giá
                         </div>
 
                         <div class="row mb-4">
+                            <!-- Thông tin đơn hàng -->
                             <div class="col-md-6">
                                 <h5 class="border-bottom pb-2">Thông tin đơn hàng</h5>
                                 <p class="mb-1"><strong>Mã đơn hàng:</strong> #<?php echo str_pad($order['id'], 8, '0', STR_PAD_LEFT); ?></p>
@@ -101,6 +91,7 @@ $discount = 0;     // Giảm giá
                                 </p>
                                 <p class="mb-1"><strong>Trạng thái:</strong> <span class="badge bg-warning"><?php echo $order['status']; ?></span></p>
                             </div>
+                            <!-- Thông tin giao hàng -->
                             <div class="col-md-6">
                                 <h5 class="border-bottom pb-2">Thông tin giao hàng</h5>
                                 <p class="mb-1"><strong>Người nhận:</strong> <?php echo htmlspecialchars($order['fullname']); ?></p>
@@ -112,6 +103,7 @@ $discount = 0;     // Giảm giá
                             </div>
                         </div>
 
+                        <!-- Bảng chi tiết sản phẩm -->
                         <h5 class="border-bottom pb-2 mb-3">Chi tiết đơn hàng</h5>
                         <div class="table-responsive">
                             <table class="table table-bordered">
@@ -164,10 +156,12 @@ $discount = 0;     // Giảm giá
                             </table>
                         </div>
 
+                        <!-- Thông báo cảm ơn -->
                         <div class="alert alert-info mt-4">
                             <p class="mb-0"><i class="fas fa-info-circle me-2"></i>Cảm ơn bạn đã mua hàng tại SudesPhone. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất để xác nhận đơn hàng.</p>
                         </div>
 
+                        <!-- Các nút điều hướng -->
                         <div class="text-center mt-4">
                             <a href="index.php" class="btn btn-primary me-2">
                                 <i class="fas fa-home me-1"></i>Về trang chủ
@@ -184,8 +178,7 @@ $discount = 0;     // Giảm giá
 </div>
 
 <?php
-$order_stmt->close();
-$details_stmt->close();
+// --- PHẦN 4: KẾT THÚC ---
 $conn->close();
 include("footer.php");
 ?> 

@@ -1,9 +1,11 @@
 <?php
+// --- PHẦN 1: KẾT NỐI VÀ KIỂM TRA ĐĂNG NHẬP ---
 include("header.php");
 include("dbconnect.php");
 
+// Kiểm tra người dùng đã đăng nhập chưa
 if(!isset($_SESSION['iduser'])) {
-    // Nếu chưa đăng nhập, chuyển về trang đăng nhập
+    // Chưa đăng nhập thì chuyển về trang login
     $_SESSION['redirect_after_login'] = 'checkout.php';
     echo "<script>alert('Vui lòng đăng nhập để thanh toán!'); window.location.href='login.php';</script>";
     exit();
@@ -11,25 +13,20 @@ if(!isset($_SESSION['iduser'])) {
 
 $user_id = $_SESSION['iduser'];
 
-// Lấy danh sách sản phẩm đã chọn để thanh toán từ giỏ hàng
-$sql = "SELECT c.id as cart_id, c.quantity, p.product_id, p.product_name, p.product_price, p.product_image, p.product_discount 
+// --- PHẦN 2: LẤY THÔNG TIN SẢN PHẨM TRONG GIỎ HÀNG ---
+$sql = "SELECT c.id as cart_id, c.quantity, p.product_id, p.product_name, 
+        p.product_price, p.product_image, p.product_discount 
         FROM cart c 
         JOIN products p ON c.product_id = p.product_id 
-        WHERE c.user_id = ?";
-$stmt = $conn->prepare($sql);
-if ($stmt === FALSE) {
-    echo "Lỗi chuẩn bị truy vấn: " . $conn->error;
-    exit();
-}
-$stmt->bind_param("i", $user_id);
-$stmt->execute();
-$items = $stmt->get_result();
+        WHERE c.user_id = $user_id";
+$items = $conn->query($sql);
 
+// Tính toán tổng tiền ban đầu
 $total = 0;
 $shipping = 30000; // Phí vận chuyển mặc định
 $discount = 0;     // Giảm giá mặc định
 
-// Lưu thông tin giỏ hàng vào biến phiên để sử dụng sau khi thanh toán
+// Lưu thông tin sản phẩm trong giỏ
 $cart_items = array();
 while ($item = $items->fetch_assoc()) {
     $item_total = $item['product_price'] * $item['quantity'];
@@ -37,9 +34,9 @@ while ($item = $items->fetch_assoc()) {
     $cart_items[] = $item;
 }
 
-// Nếu đã submit form thanh toán
+// --- PHẦN 3: XỬ LÝ ĐẶT HÀNG ---
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Xử lý thanh toán
+    // Lấy dữ liệu từ form
     $fullname = $_POST['fullname'] ?? '';
     $phone = $_POST['phone'] ?? '';
     $address = $_POST['address'] ?? '';
@@ -47,76 +44,55 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $payment_method = $_POST['payment_method'] ?? '';
     $final_total = $total + $shipping - $discount;
     
+    // Kiểm tra dữ liệu
     if(empty($fullname) || empty($phone) || empty($address)) {
         $error = "Vui lòng điền đầy đủ thông tin giao hàng";
     } else {
-        // Bắt đầu giao dịch
-        $conn->begin_transaction();
-        
-        try {
-            // Lưu thông tin đơn hàng
-            $order_sql = "INSERT INTO orders (user_id, fullname, phone, address, note, total_amount, payment_method) 
-                         VALUES (?, ?, ?, ?, ?, ?, ?)";
-            $order_stmt = $conn->prepare($order_sql);
-            if ($order_stmt === FALSE) {
-                throw new Exception("Lỗi chuẩn bị truy vấn đơn hàng: " . $conn->error);
-            }
-            
-            $order_stmt->bind_param("issssds", $user_id, $fullname, $phone, $address, $note, $final_total, $payment_method);
-            $order_stmt->execute();
+        // Lưu thông tin đơn hàng
+        $order_sql = "INSERT INTO orders (user_id, fullname, phone, address, note, 
+                     total_amount, payment_method) 
+                     VALUES ($user_id, '$fullname', '$phone', '$address', '$note', 
+                     $final_total, '$payment_method')";
+                     
+        if($conn->query($order_sql)) {
             $order_id = $conn->insert_id;
             
-            // Lưu chi tiết đơn hàng
-            $detail_sql = "INSERT INTO order_details (order_id, product_id, product_name, product_price, quantity) 
-                          VALUES (?, ?, ?, ?, ?)";
-            $detail_stmt = $conn->prepare($detail_sql);
-            if ($detail_stmt === FALSE) {
-                throw new Exception("Lỗi chuẩn bị truy vấn chi tiết đơn hàng: " . $conn->error);
-            }
+            // Lấy lại danh sách sản phẩm trong giỏ
+            $items = $conn->query($sql);
             
-            // Reset con trỏ kết quả để lặp lại qua các sản phẩm
-            $stmt->execute();
-            $items = $stmt->get_result();
-            
+            // Lưu từng sản phẩm vào chi tiết đơn hàng
             while ($item = $items->fetch_assoc()) {
-                $detail_stmt->bind_param("iisdi", $order_id, $item['product_id'], $item['product_name'], $item['product_price'], $item['quantity']);
-                $detail_stmt->execute();
+                $product_id = $item['product_id'];
+                $product_name = $conn->real_escape_string($item['product_name']);
+                $product_price = $item['product_price'];
+                $quantity = $item['quantity'];
+                
+                $detail_sql = "INSERT INTO order_details (order_id, product_id, product_name, 
+                              product_price, quantity) 
+                              VALUES ($order_id, $product_id, '$product_name', 
+                              $product_price, $quantity)";
+                $conn->query($detail_sql);
             }
             
-            // Xóa sản phẩm khỏi giỏ hàng
-            $clear_cart_sql = "DELETE FROM cart WHERE user_id = ?";
-            $clear_cart_stmt = $conn->prepare($clear_cart_sql);
-            if ($clear_cart_stmt === FALSE) {
-                throw new Exception("Lỗi chuẩn bị truy vấn xóa giỏ hàng: " . $conn->error);
-            }
+            // Xóa giỏ hàng sau khi đặt hàng thành công
+            $clear_cart_sql = "DELETE FROM cart WHERE user_id = $user_id";
+            $conn->query($clear_cart_sql);
             
-            $clear_cart_stmt->bind_param("i", $user_id);
-            $clear_cart_stmt->execute();
-            
-            // Hoàn tất giao dịch
-            $conn->commit();
-            
-            // Lưu order_id vào session để hiển thị hóa đơn
+            // Lưu order_id vào session và chuyển đến trang xác nhận
             $_SESSION['last_order_id'] = $order_id;
-            
-            // Chuyển hướng đến trang hóa đơn
-            echo "<script>
-                window.location.href='order_confirmation.php?order_id=" . $order_id . "';
-            </script>";
+            echo "<script>window.location.href='order_confirmation.php?order_id=" . $order_id . "';</script>";
             exit();
-        } catch (Exception $e) {
-            // Có lỗi, hủy bỏ giao dịch
-            $conn->rollback();
-            $error = "Đã xảy ra lỗi: " . $e->getMessage();
+        } else {
+            $error = "Đã xảy ra lỗi: " . $conn->error;
         }
     }
 }
 
-// Reset con trỏ kết quả để hiển thị trang
-$stmt->execute();
-$items = $stmt->get_result();
+// Lấy lại danh sách sản phẩm để hiển thị trên trang
+$items = $conn->query($sql);
 ?>
 
+<!-- --- PHẦN 4: GIAO DIỆN THANH TOÁN --- -->
 <div class="container-fluid py-4" style="background-color: #f5f5f5;">
     <div class="container">
         <h2 class="mb-4 text-primary fw-bold">
@@ -198,7 +174,7 @@ $items = $stmt->get_result();
                     <div class="card-body">
                         <h6 class="mb-3">Sản phẩm</h6>
 
-                        <?php if($items->num_rows > 0): ?>
+                        <?php if($items && $items->num_rows > 0): ?>
                             <div class="order-items">
                                 <?php 
                                 $total = 0;
@@ -256,7 +232,7 @@ $items = $stmt->get_result();
 </div>
 
 <?php
-$stmt->close();
+// --- PHẦN 5: KẾT THÚC ---
 $conn->close();
 include("footer.php");
 ?> 

@@ -1,73 +1,50 @@
 <?php
+// --- PHẦN 1: KẾT NỐI VÀ THIẾT LẬP ---
 include("header.php");
 include("dbconnect.php");
 
-// Xử lý thêm sản phẩm qua phương thức GET (từ các trang danh sách sản phẩm)
+// --- PHẦN 2: XỬ LÝ THÊM SẢN PHẨM VÀO GIỎ ---
 if(isset($_GET['action']) && $_GET['action'] == 'add' && isset($_GET['product_id'])) {
-    // Nếu người dùng đã đăng nhập
+    // Kiểm tra đăng nhập
     if(isset($_SESSION['iduser'])) {
         $user_id = $_SESSION['iduser'];
         $product_id = (int)$_GET['product_id'];
         $quantity = 1; // Mặc định thêm 1 sản phẩm
 
-        // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
-        $check_sql = "SELECT id, quantity FROM cart WHERE user_id = ? AND product_id = ?";
-        $check_stmt = $conn->prepare($check_sql);
-        if($check_stmt === FALSE) {
-            echo "Lỗi khi chuẩn bị truy vấn kiểm tra: " . $conn->error;
-            exit();
-        }
-        
-        $check_stmt->bind_param("ii", $user_id, $product_id);
-        $check_stmt->execute();
-        $result = $check_stmt->get_result();
+        // Kiểm tra sản phẩm đã có trong giỏ chưa
+        $check_sql = "SELECT id, quantity FROM cart WHERE user_id = $user_id AND product_id = $product_id";
+        $result = $conn->query($check_sql);
         
         if($result->num_rows > 0) {
             // Sản phẩm đã có trong giỏ, cập nhật số lượng
             $cart_item = $result->fetch_assoc();
             $new_quantity = $cart_item['quantity'] + $quantity;
             
-            $update_sql = "UPDATE cart SET quantity = ? WHERE id = ?";
-            $update_stmt = $conn->prepare($update_sql);
-            if($update_stmt === FALSE) {
-                echo "Lỗi khi chuẩn bị truy vấn cập nhật: " . $conn->error;
-                exit();
-            }
-            
-            $update_stmt->bind_param("ii", $new_quantity, $cart_item['id']);
-            $update_stmt->execute();
-            $update_stmt->close();
+            $update_sql = "UPDATE cart SET quantity = $new_quantity WHERE id = {$cart_item['id']}";
+            $conn->query($update_sql);
         } else {
             // Thêm mới sản phẩm vào giỏ
-            $insert_sql = "INSERT INTO cart (user_id, product_id, quantity) VALUES (?, ?, ?)";
-            $insert_stmt = $conn->prepare($insert_sql);
-            if($insert_stmt === FALSE) {
-                echo "Lỗi khi chuẩn bị truy vấn thêm mới: " . $conn->error;
-                exit();
-            }
-            
-            $insert_stmt->bind_param("iii", $user_id, $product_id, $quantity);
-            $insert_stmt->execute();
-            $insert_stmt->close();
+            $insert_sql = "INSERT INTO cart (user_id, product_id, quantity) VALUES ($user_id, $product_id, $quantity)";
+            $conn->query($insert_sql);
         }
-        $check_stmt->close();
         
-        // Chuyển hướng lại trang trước đó hoặc hiển thị thông báo
+        // Thông báo và quay lại trang trước
         echo "<script>alert('Sản phẩm đã được thêm vào giỏ hàng!');</script>";
         if(isset($_SERVER['HTTP_REFERER'])) {
             echo "<script>window.location.href='".$_SERVER['HTTP_REFERER']."';</script>";
             exit();
         }
     } else {
-        // Nếu chưa đăng nhập, lưu URL hiện tại và chuyển về trang đăng nhập
+        // Yêu cầu đăng nhập
         $_SESSION['redirect_after_login'] = $_SERVER['REQUEST_URI'];
         echo "<script>alert('Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng!'); window.location.href='login.php';</script>";
         exit();
     }
 }
 
+// --- PHẦN 3: KIỂM TRA ĐĂNG NHẬP ---
 if(!isset($_SESSION['iduser'])) {
-    // Nếu chưa đăng nhập, chuyển về trang đăng nhập
+    // Người dùng chưa đăng nhập
     $_SESSION['redirect_after_login'] = 'cart.php';
     echo "<script>alert('Vui lòng đăng nhập để xem giỏ hàng!'); window.location.href='login.php';</script>";
     exit();
@@ -75,30 +52,23 @@ if(!isset($_SESSION['iduser'])) {
 
 $user_id = $_SESSION['iduser'];
 
-// Lấy danh sách sản phẩm trong giỏ hàng của người dùng
-$sql = "SELECT c.id as cart_id, c.quantity, p.product_id, p.product_name, p.product_price, p.product_image, p.product_discount 
-        FROM cart c 
-        JOIN products p ON c.product_id = p.product_id 
-        WHERE c.user_id = ?";
-$stmt = $conn->prepare($sql);
-
-if ($stmt === FALSE) {
-    echo "Lỗi chuẩn bị truy vấn: " . $conn->error;
-    exit();
-}
-
-$stmt->bind_param("i", $user_id);
-$stmt->execute();
-$cart_items = $stmt->get_result();
+// --- PHẦN 4: LẤY DANH SÁCH SẢN PHẨM TRONG GIỎ HÀNG ---
+$sql = "SELECT c.id as cart_id, c.quantity, p.product_id, p.product_name, p.product_price, 
+              p.product_image, p.product_discount 
+       FROM cart c 
+       JOIN products p ON c.product_id = p.product_id 
+       WHERE c.user_id = $user_id";
+$cart_items = $conn->query($sql);
 ?>
 
+<!-- --- PHẦN 5: HIỂN THỊ GIAO DIỆN GIỎ HÀNG --- -->
 <div class="container-fluid py-4" style="background-color: #f5f5f5;">
     <div class="container">
         <h2 class="mb-4 text-primary fw-bold">
             <i class="fas fa-shopping-cart me-2"></i>Giỏ hàng của tôi
         </h2>
 
-        <?php if($cart_items->num_rows > 0): ?>
+        <?php if($cart_items && $cart_items->num_rows > 0): ?>
             <div class="card shadow-sm mb-4">
                 <div class="card-header bg-white py-3">
                     <div class="row align-items-center">
@@ -212,6 +182,7 @@ $cart_items = $stmt->get_result();
                 </div>
             </div>
         <?php else: ?>
+            <!-- Hiển thị khi giỏ hàng trống -->
             <div class="card shadow-sm">
                 <div class="card-body text-center py-5">
                     <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/cart/9bdd8040b334d31946f49e36beaf32db.png" alt="Empty Cart" style="width: 150px;" class="mb-3">
@@ -225,6 +196,7 @@ $cart_items = $stmt->get_result();
     </div>
 </div>
 
+<!-- --- PHẦN 6: JAVASCRIPT XỬ LÝ --- -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // Xử lý chọn tất cả
@@ -282,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return amount.toLocaleString('vi-VN') + '₫';
     }
     
-    // Xử lý nút tăng giảm số lượng
+    // Nút tăng giảm số lượng
     const minusBtns = document.querySelectorAll('.minus');
     const plusBtns = document.querySelectorAll('.plus');
     const quantityInputs = document.querySelectorAll('.quantity-input');
@@ -321,21 +293,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Cập nhật số lượng qua AJAX
+    // Cập nhật số lượng bằng AJAX
     function updateQuantity(cartId, quantity) {
-        fetch('update_cart.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: `action=update&cart_id=${cartId}&quantity=${quantity}`
-        })
-        .then(response => response.json())
-        .then(data => {
-            if(data.success) {
-                location.reload();
+        // Cách đơn giản hơn để gửi yêu cầu AJAX
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'update_cart.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                const data = JSON.parse(xhr.responseText);
+                if (data.success) {
+                    location.reload();
+                }
             }
-        });
+        };
+        xhr.send(`action=update&cart_id=${cartId}&quantity=${quantity}`);
     }
     
     // Xử lý xóa sản phẩm
@@ -349,21 +321,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Xóa sản phẩm qua AJAX
+    // Xóa sản phẩm bằng AJAX
     function deleteItem(cartId) {
-        fetch('update_cart.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: `action=delete&cart_id=${cartId}`
-        })
-        .then(response => response.json())
-        .then(data => {
-            if(data.success) {
-                location.reload();
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'update_cart.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                const data = JSON.parse(xhr.responseText);
+                if (data.success) {
+                    location.reload();
+                }
             }
-        });
+        };
+        xhr.send(`action=delete&cart_id=${cartId}`);
     }
     
     // Xử lý nút thanh toán
@@ -387,8 +358,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<?php
-$stmt->close();
+<?php 
+// --- PHẦN 7: KẾT THÚC ---
 $conn->close();
 include("footer.php");
 ?> 
