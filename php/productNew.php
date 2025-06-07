@@ -26,26 +26,34 @@
     <h2>Tất cả sản phẩm mới</h2>
     <div class="row">
         <?php
-       
-        if ($result->num_rows > 0) {
-            while ($product = $result->fetch_assoc()) {
-                echo '<div class="col-md-2-4 col-sm-6 col-6" style="margin-bottom: 30px;">
-                    <div class="card h-100" style="position: relative;">
-                        <!-- Badge Mới -->
-                        <div class="badge bg-success position-absolute" style="top: 10px; left: 10px; z-index: 10;">Mới</div>
-                        <img src="' . $product["product_image"] . '" class="card-img-top" alt="' . $product["product_name"] . '" style="height: 250px; object-fit: contain;">
-                        <div class="card-body">
-                            <h6 class="card-title">' . $product["product_name"] . '</h6>
-                            <p><small class="text-muted">' . $product["product_category"] . '</small></p>
-                            <p class="card-text" style="color: red; font-weight: bold;">' . number_format($product["product_price"]) . '₫</p>
-                            <a href="cart.php?action=add&product_id=' . ($product["product_id"]) . '" class="btn btn-primary btn-sm">Thêm vào giỏ</a>
-                        </div>
+
+if ($result->num_rows > 0) {
+    while ($product = $result->fetch_assoc()) {
+        echo '<div class="col-md-3" style="margin-bottom: 30px;">
+            <div class="card h-100" style="position: relative; display: flex; flex-direction: column;">
+                <!-- Badge Mới -->
+                <div class="badge bg-success position-absolute" style="top: 10px; left: 10px; z-index: 10;">Mới</div>
+                <img src="' . $product["product_image"] . '" class="card-img-top" alt="' . $product["product_name"] . '" style="height: 250px; object-fit: contain;">
+                <div class="card-body" style="display: flex; flex-direction: column; flex: 1;">
+                    <h5 class="card-title">' . $product["product_name"] . '</h5>
+                    <p><small class="text-muted">' . $product["product_category"] . '</small></p>
+                    <p class="card-text" style="color: red; font-weight: bold;">' . number_format($product["product_price"]) . '₫</p>
+                    <div class="d-flex justify-content-between" style="margin-top: auto;">
+                        <a href="cart.php?action=add&product_id=' . ($product["product_id"]) . '" class="btn btn-primary">
+                            <i class="fas fa-cart-plus"></i> Thêm vào giỏ
+                        </a>
+                        <a href="wishlist.php?action=add&product_id=' . ($product["product_id"]) . '" class="btn btn-outline-danger">
+                            <i class="fas fa-heart"></i>
+                        </a>
                     </div>
-                </div>';
-            }
-        } else {
-            echo '<div class="col-12"><p class="text-center">Không có sản phẩm nào.</p></div>';
-        }
+                </div>
+            </div>
+        </div>';
+    }
+} else {
+    echo '<div class="col-12"><p class="text-center">Không có sản phẩm nào.</p></div>';
+}
+
         ?>
     </div>
     
