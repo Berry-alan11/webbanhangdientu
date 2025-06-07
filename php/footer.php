@@ -1,10 +1,10 @@
 <!-- Footer Placeholder -->
-<footer class="bg-dark text-white py-5 mt-5">
+<footer class="main-footer">
         <div class="container">
             <div class="row g-4">
-                <div class="col-12 col-md-4">
-                    <h2 class="fw-bold text-white">SUDES<span class="text-danger">PHONE</span></h2>
-                    <p class="mt-3">SudesPhone - Hệ thống bán lẻ thiết bị điện tử chính hãng hàng đầu Việt Nam với hơn 100 cửa hàng trên toàn quốc.</p>
+                <div class="footer-brand">
+                    <h2 class="brand-title">SUDES<span class="brand-highlight">PHONE</span></h2>
+                    <p class="brand-description">SudesPhone - Hệ thống bán lẻ thiết bị điện tử chính hãng hàng đầu Việt Nam với hơn 100 cửa hàng trên toàn quốc.</p>
                     <div class="social-links mt-3">
                         <a href="https://www.facebook.com/sudesphone"><i class="fab fa-facebook"></i></a>
                         <a href="https://www.instagram.com/sudesphone"><i class="fab fa-instagram"></i></a>
@@ -12,7 +12,7 @@
                         <a href="https://https://www.tiktok.com/sudesphone"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
-                <div class="col-12 col-md-2 footer-links">
+                <div class="footer-menu">
                     <h5>Thông tin</h5>
                     <ul>
                         <li><a href="gioithieu.php">Giới thiệu</a></li>
@@ -22,7 +22,7 @@
                         <li><a href="contact.php">Liên hệ</a></li>
                     </ul>
                 </div>
-                <div class="col-12 col-md-2 footer-links">
+                <div class="footer-policy">
                     <h5>Chính sách</h5>
                     <ul>
                         <li><a href="chinhsachbaohanh.php">Chính sách bảo hành</a></li>
@@ -32,7 +32,7 @@
                         <li><a href="dieukhoansudung.php">Điều khoản sử dụng</a></li>
                     </ul>
                 </div>
-                <div class="col-12 col-md-4 footer-links">
+                <div class="footer-contact">
                     <h5>Liên hệ</h5>
                     <ul>
                         <li><i class="fas fa-map-marker-alt me-2"></i> 123 Đống Đa, Quy Nhơn, Bình Định</li>
@@ -52,7 +52,7 @@
                 </div>
             </div>
             <hr class="my-4">
-            <div class="row">
+            <div class="footer-copyright">
                 <div class="col-12 text-center">
                     <p class="mb-0">&copy; 2024 SudesPhone. Tất cả các quyền được bảo lưu.</p>
                 </div>
@@ -65,21 +65,5 @@
     <!-- Custom JS -->
     <script src="main.js"></script>
     <?php include("quangcao.php"); ?>
-    
-    <!-- Initialize dropdowns -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Ensure all dropdowns work properly
-            var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
-            var dropdownList = dropdownElementList.map(function(dropdownToggleEl) {
-                return new bootstrap.Dropdown(dropdownToggleEl);
-            });
-            
-            // Fix any z-index issues
-            document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
-                menu.style.zIndex = "1050";
-            });
-        });
-    </script>
 </body>
 </html>

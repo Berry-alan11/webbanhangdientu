@@ -112,47 +112,98 @@ body {
 }
 /* thương hiệu nổi bật */
 
-
 /* Footer Styles */
-footer {
-    background-color: #212529;
+.main-footer {
+    background-color: #212529;  
+    color: #f8f9fa;            
+    margin-top: 60px; 
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    
 }
 
-.footer-links h5 {
-    color: white;
+.footer-brand {
+    max-width: 300px;
+}
+
+.brand-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    margin: 0 0 20px 0;
+}
+
+.brand-highlight {
+    color: #e74c3c;
+}
+.brand-description {
+    font-size: 16px;
+    line-height: 1.6; 
+    color: #bdc3c7;
     margin-bottom: 20px;
-    font-weight: 600;
 }
 
-.footer-links ul {
-    padding-left: 0;
-    list-style: none;
+.row.g-4 {
+    display: flex;              
+    flex-wrap: wrap;         
+    justify-content: space-between; 
+}
+.footer-brand {
+    margin-left: 30px;
+}
+.footer-menu{
+    margin-left: 120px;
+}
+.footer-contact {
+    margin-left: -40px;
+}
+.footer-policy {
+    margin-right: 80px;
+}
+.footer-brand, .footer-menu, .footer-policy, .footer-contact {
+    flex: 1;                   
+    min-width: 150px;         
+    margin-bottom: 20px;      
+           
+}
+.footer-brand h5,.footer-menu h5,.footer-policy h5,.footer-contact h5{
+    color: white;             
+    margin-bottom: 10px;       
+    font-weight: 600;          
+    margin-top: 10px;
 }
 
-.footer-links ul li {
-    margin-bottom: 10px;
+.footer-menu ul,.footer-policy ul,.footer-contact ul {
+    padding-left: 0;           
+    list-style: none;         
 }
 
-.footer-links ul li a {
-    color: #adb5bd;
-    text-decoration: none;
-    transition: all 0.3s;
+.footer-menu ul li,.footer-policy ul li,.footer-contact ul li {
+    margin-bottom: 10px;      
 }
 
-.footer-links ul li a:hover {
-    color: white;
+.footer-menu ul li a,.footer-policy ul li a,.footer-contact ul li a {
+    color: #adb5bd;           
+    text-decoration: none;     
+    transition: all 0.3s;      
+}
+.footer-menu ul li a:hover,.footer-policy ul li a:hover,.footer-contact ul li a:hover {
+    color: white;             
 }
 
 .social-links a {
-    display: inline-block;
-    margin-right: 15px;
-    color: white;
-    font-size: 20px;
-    transition: all 0.3s;
+    display: inline-block;     
+    margin-right: 10px;        
+    color: white;             
+    font-size: 20px;           
+    transition: all 0.3s;      
+          
 }
 
 .social-links a:hover {
-    transform: translateY(-3px);
+    transform: translateY(-3px); 
 }
 
 /* Responsive */
@@ -160,8 +211,7 @@ footer {
     .banner-img {
         height: 200px;
     }
-}
-
+} 
 /* Dropdown menu styles */
 .dropdown-menu {
     z-index: 1050 !important;
