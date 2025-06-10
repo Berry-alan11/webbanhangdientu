@@ -98,11 +98,7 @@ if ($now < $flashSaleEnd) {
 // Truy vấn sản phẩm giảm giá (giả sử có cột 'discount_price' trong bảng products)
 $sql = "SELECT product_id, product_name, product_price, product_discount, product_image FROM products WHERE
 product_discount > 0  
-ORDER BY product_discount DESC
--- product_discount > 0 AND (product_price - (product_price *
--- product_discount/100)) > 0 ORDER BY discount_price ASC";
-// Kết nối CSDL
-// Thực hiện truy vấn
+ORDER BY product_discount DESC";
 $result = $conn->query($sql);
 ?>
 
