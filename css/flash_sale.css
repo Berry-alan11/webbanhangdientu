@@ -1,0 +1,12 @@
+.flash-sale-countdown {
+    font-size: 2rem;
+    color: #e53935;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+.countdown-hour, .countdown-minute, .countdown-second {
+    background: #fff3e0;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin: 0 2px;
+}

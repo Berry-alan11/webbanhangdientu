@@ -1,6 +1,6 @@
 <?php
 $servername = "localhost";
-$database = "websale";
+$database = "webbanhangdientu";
 $username = "root";
 $password = "";
 

@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //Recipients
         $mail->setFrom("vilaptrinh@gmail.com", $name);
         // $mail->addAddress('support@webbanhangdientu.vn', 'Web Bán Hàng Điện Tử');
-        $mail->addAddress('thanhkha23122005@gmail.com', "Web Bán Hàng Điện Tử"); // Địa chỉ email nhận thông báo
+        $mail->addAddress('vilaptrinh@gmail.com', "Web Bán Hàng Điện Tử"); // Địa chỉ email nhận thông báo
         $mail->addReplyTo("vibadao123@gmail.com", $name); // Địa chỉ email trả lời
         
 

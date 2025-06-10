@@ -115,14 +115,18 @@
                                 <span class="product-price me-2">27.990.000₫</span>
                                 <span class="product-price-old">34.990.000₫</span>
                             </div>
-                            <div class="d-flex justify-content-between">
+
+                            <!-- <form action="add_to_cart.php" method="post"> -->
+                                <div class="d-flex justify-content-between">
                                 <button class="btn btn-sm btn-cart add-to-cart" data-id="1" data-name="iPhone 15 Pro Max" data-price="27990000">
-                                    <i class="fas fa-shopping-cart me-1"></i> Thêm vào giỏ
+                                <i class="fas fa-shopping-cart me-1"></i> Thêm vào giỏ
                                 </button>
-                                <button class="btn btn-sm btn-outline-secondary add-to-wishlist" data-id="1">
+                                <button class="btn btn-sm btn-outline-secondary add-to-wishlist" data-id="1" action="yeuthich.php" method="get">
                                     <i class="far fa-heart"></i>
                                 </button>
                             </div>
+                            <!-- </form>  -->
+                            
                         </div>
                     </div>
                 </div>

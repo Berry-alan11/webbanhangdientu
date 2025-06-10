@@ -1,3 +1,13 @@
+<!-- ?php
+session_start();// Không khởi động session ở đây vì có thể đã khởi động ở các file khác file login_process.php, register_process.php
+?> -->
+
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -24,8 +34,15 @@
                         <span class="text-white ms-4"><i class="fas fa-envelope me-2"></i>Email: support@sudesphone.com</span>
                     </div>
                     <div class="col-md-6 text-end">
-                        <a href="login.php" class="text-white me-3"><i class="fas fa-user me-1"></i>Đăng nhập</a>
-                        <a href="register.php" class="text-white"><i class="fas fa-user-plus me-1"></i>Đăng ký</a>
+                        <!-- <a href="login.php" class="text-white me-3"><i class="fas fa-user me-1"></i>Đăng nhập</a>
+                        <a href="register.php" class="text-white"><i class="fas fa-user-plus me-1"></i>Đăng ký</a> -->
+                        <?php if (isset($_SESSION['firstname'])): ?>
+    <span class="text-white me-3"><i class="fas fa-user me-1"></i><?php echo htmlspecialchars($_SESSION['firstname']); ?></span>
+    <a href="logout.php" class="text-white"><i class="fas fa-sign-out-alt me-1"></i>Đăng xuất</a>
+<?php else: ?>
+    <a href="login.php" class="text-white me-3"><i class="fas fa-user me-1"></i>Đăng nhập</a>
+    <a href="register.php" class="text-white"><i class="fas fa-user-plus me-1"></i>Đăng ký</a>
+<?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -41,13 +58,14 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <form class="d-flex mx-auto" style="width: 50%;">
-                        <input class="form-control me-2" type="search" placeholder="Tìm kiếm sản phẩm...">
-                        <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+                    <form class="d-flex mx-auto" style="width: 50%;" action="search.php" method="get">
+                        <input class="form-control me-2" type="search" name ="keyword" placeholder="Tìm kiếm sản phẩm...">
+                        <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i>
+                    </button>
                     </form>
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-heart fa-lg"></i></a>
+                            <a class="nav-link" href="yeuthich.php"><i class="fas fa-heart fa-lg"></i></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="product.php"><i class="fas fa-shopping-cart fa-lg"></i></a>

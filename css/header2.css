@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Topbar */
+.topbar {
+    background: #0d6efd;
+    color: #fff;
+    font-size: 14px;
+    padding: 8px 0;
+}
+.topbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.topbar-left span {
+    margin-right: 24px;
+}
+.topbar-right a {
+    color: #fff;
+    margin-left: 18px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.topbar-right a:hover {
+    color: #ffd700;
+}
+
+/* Main Navigation */
+.main-nav {
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.nav-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+.logo-main {
+    color: #0d6efd;
+}
+.logo-sub {
+    color: #dc3545;
+}
+.search-form {
+    display: flex;
+    width: 50%;
+    max-width: 400px;
+}
+.search-form input[type="text"] {
+    flex: 1;
+    padding: 7px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+.search-form button {
+    padding: 7px 14px;
+    border: none;
+    background: #0d6efd;
+    color: #fff;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.search-form button:hover {
+    background: #0b5ed7;
+}
+.nav-icons a {
+    color: #333;
+    font-size: 1.3rem;
+    margin-left: 18px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.nav-icons a:hover {
+    color: #0d6efd;
+}
+
+/* Categories Navigation */
+.categories {
+    background: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+}
+.categories ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+.categories li {
+    margin-right: 18px;
+}
+.categories a {
+    display: block;
+    padding: 12px 0;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.categories a.active,
+.categories a:hover {
+    color: #0d6efd;
+    border-bottom: 2px solid #0d6efd;
+}

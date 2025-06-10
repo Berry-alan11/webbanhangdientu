@@ -2,6 +2,7 @@
     include("header.php");
     include("database.php");// kết nối cơ sở dữ liệu
     //Truy vấn sản phẩm thuộc danh mục "Laptop"
+    //include("search.php");
     $sql = "SELECT product_id,product_name,product_price, product_image FROM products WHERE product_category = 'Laptop'";
     $result = $conn->query($sql);
 ?>

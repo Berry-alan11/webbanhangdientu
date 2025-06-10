@@ -28,3 +28,7 @@ Recruitment -->
 - https://www.flaticon.com/search?word=tablet (icon)
 - <a href="https://www.flaticon.com/free-icons/watch" title="watch icons">Watch icons created by Freepik - Flaticon</a>
 - https://cellphones.com.vn/thiet-bi-am-thanh/loa/sony.html
+- https://www.w3schools.com/ (dùng để tham khảo css, html, js)
+
+- Thẻ form gồm các thuộc tính:
+action:
